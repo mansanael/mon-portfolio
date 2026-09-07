@@ -1,0 +1,18 @@
+:root {
+  --couleur-fond: #f7f8fb;
+  --couleur-texte: #1c2230;
+  --couleur-accent: #14b8a6;
+}
+
+body {
+  font-family: system-ui, sans-serif;
+  background: var(--couleur-fond);
+  color: var(--couleur-texte);
+}
+
+.carte {
+  background: white;
+  border: 1px solid #e2e5ec;
+  border-radius: 8px;
+  padding: 1.25rem;
+}
