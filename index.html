@@ -1,22 +1,480 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data-lens="all">
 <head>
   <meta charset="UTF-8">
-  <title>Portfolio — Mansa NAEL</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Magath NAEL — IA, Cybersécurité & Données</title>
+  <meta name="description" content="Magath NAEL — Ingénieur IA appliquée, consultant cybersécurité et data scientist. Dakar / Thiès, Sénégal.">
+  <meta name="theme-color" content="#0b0c0e">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230b0c0e'/%3E%3Ctext x='16' y='21' text-anchor='middle' font-family='monospace' font-size='13' font-weight='600' fill='%23e9e7e2'%3EMN%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <script>
+    document.documentElement.classList.add('js');
+    try {
+      var t = localStorage.getItem('theme');
+      if (t) document.documentElement.setAttribute('data-theme', t);
+    } catch (e) {}
+  </script>
 </head>
 <body>
-  <header>
-    <h1>Mansa NAEL</h1>
-    <p>Étudiant·e en informatique</p>
+  <a class="skip" href="#main">Aller au contenu</a>
+
+  <!-- ============ EN-TÊTE ============ -->
+  <header class="site-header">
+    <div class="bar wrap">
+      <a class="brand" href="#top" aria-label="Accueil">
+        <span class="brand-mark mono">MN</span>
+        <span class="brand-name">Magath NAEL</span>
+      </a>
+      <nav class="nav-links" aria-label="Navigation principale">
+        <a href="#disciplines">Disciplines</a>
+        <a href="#sayoon">Projet phare</a>
+        <a href="#projets">Projets</a>
+        <a href="#parcours">Parcours</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button class="theme-toggle" type="button" aria-label="Changer de thème">
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M12 7a5 5 0 0 1 0 10z" fill="currentColor"/></svg>
+      </button>
+    </div>
+    <div class="lens-row wrap">
+      <span class="lens-label mono">Lentille</span>
+      <div class="lens" role="group" aria-label="Lire le site à travers une spécialité">
+        <button type="button" data-set-lens="all" aria-pressed="true"><i></i>Tout</button>
+        <button type="button" data-set-lens="ia" aria-pressed="false"><i></i>IA</button>
+        <button type="button" data-set-lens="secu" aria-pressed="false"><i></i>Sécurité</button>
+        <button type="button" data-set-lens="data" aria-pressed="false"><i></i>Données</button>
+        <button type="button" data-set-lens="dev" aria-pressed="false"><i></i>Dev</button>
+        <button type="button" data-set-lens="edu" aria-pressed="false"><i></i>Transmission</button>
+      </div>
+    </div>
   </header>
-  <main>
-    <section id="projets">
-      <h2>Mes projets</h2>
-      <div class="carte">Projet 1</div>
-      <div class="carte">Prohet 2</div>
+
+  <main id="main">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero wrap" id="top">
+      <div class="hero-text">
+        <p class="eyebrow mono"><span class="pulse" aria-hidden="true"></span>Dakar · Thiès — 14.79° N, 16.93° W</p>
+        <h1 class="hero-name">Magath <em>Nael</em></h1>
+        <p class="hero-role mono">Ingénieur IA appliquée · Consultant cybersécurité · Data scientist</p>
+        <p class="hero-statement" id="statement" aria-live="polite">Je conçois des systèmes intelligents, sûrs et pilotés par la donnée.</p>
+        <p class="hero-sub">Double Master en Intelligence Artificielle et en Cybersécurité, plus de dix ans entre ingénierie, conseil et enseignement. Je conçois pour les conditions réelles de l'Afrique de l'Ouest&nbsp;: connectivité faible, données sensibles, utilisateurs bilingues français&nbsp;/&nbsp;wolof.</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#contact">Me contacter</a>
+          <a class="btn btn-ghost" href="#sayoon">Voir le projet phare <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+      <figure class="hero-graph" aria-hidden="true">
+        <canvas id="graph"></canvas>
+        <figcaption class="mono">fig.01 — graphe de compétences · choisissez une lentille</figcaption>
+      </figure>
+    </section>
+
+    <!-- ============ DISCIPLINES ============ -->
+    <section class="section wrap" id="disciplines">
+      <header class="section-head reveal">
+        <p class="section-index mono">01 / Disciplines</p>
+        <h2>Cinq disciplines, <em>un seul système</em>.</h2>
+        <p class="lead">Chaque projet que je mène croise au moins deux de ces domaines. Choisissez-en un pour relire tout le site à travers lui.</p>
+      </header>
+
+      <div class="bento">
+        <article class="card disc disc-ia reveal lensable" data-tags="ia">
+          <div class="disc-top">
+            <span class="disc-num mono">01</span>
+            <span class="disc-kicker mono">LLM · NLP · Voix</span>
+          </div>
+          <div class="viz viz-wave" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+          <h3>IA appliquée</h3>
+          <p>Agents conversationnels et vocaux, RAG et Graph RAG, sorties JSON strictes avec garde-fous. Chaque système est évalué en conditions réelles, latence comprise.</p>
+          <ul class="kw mono"><li>Gemini</li><li>OpenAI</li><li>Hugging Face</li><li>Mistral / Ollama</li><li>PyTorch</li></ul>
+          <button class="card-link mono" type="button" data-set-lens="ia">Lentille IA <span aria-hidden="true">→</span></button>
+        </article>
+
+        <article class="card disc disc-secu reveal lensable" data-tags="secu">
+          <div class="disc-top">
+            <span class="disc-num mono">02</span>
+            <span class="disc-kicker mono">Pentest · SSI · Crypto</span>
+          </div>
+          <div class="viz viz-hash mono" aria-hidden="true">
+            <span class="hash-line">sha256</span>
+            <span class="hash-out" id="hash">9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08</span>
+            <span class="hash-state"><b></b>intégrité vérifiée</span>
+          </div>
+          <h3>Cybersécurité</h3>
+          <p>Tests d'intrusion, analyse de vulnérabilités, sécurisation de plateformes de données de santé, cryptographie et blockchain. J'enseigne aussi l'ethical hacking.</p>
+          <ul class="kw mono"><li>Kali Linux</li><li>Metasploit</li><li>OWASP</li><li>ISO/IEC 27001</li><li>Blockchain</li></ul>
+          <button class="card-link mono" type="button" data-set-lens="secu">Lentille Sécurité <span aria-hidden="true">→</span></button>
+        </article>
+
+        <article class="card disc disc-data reveal lensable" data-tags="data">
+          <div class="disc-top">
+            <span class="disc-num mono">03</span>
+            <span class="disc-kicker mono">ML · Pilotage</span>
+          </div>
+          <div class="viz viz-bars" aria-hidden="true">
+            <span style="--h:38%"></span><span style="--h:52%"></span><span style="--h:44%"></span><span style="--h:61%"></span><span style="--h:57%"></span><span style="--h:72%"></span><span style="--h:68%"></span><span style="--h:83%"></span><span style="--h:79%" class="hi"></span>
+          </div>
+          <h3>Analyse de données</h3>
+          <p>Des données nationales DHIS2 aux modèles d'aide à la décision&nbsp;: zones à risque pour le paludisme et le VIH, détection d'anomalies et de fraude par graphes.</p>
+          <ul class="kw mono"><li>pandas</li><li>scikit-learn</li><li>Prophet</li><li>Neo4j</li><li>Power BI</li></ul>
+          <button class="card-link mono" type="button" data-set-lens="data">Lentille Données <span aria-hidden="true">→</span></button>
+        </article>
+
+        <article class="card disc disc-dev reveal lensable" data-tags="dev">
+          <div class="disc-top">
+            <span class="disc-num mono">04</span>
+            <span class="disc-kicker mono">Web · Mobile · Infra</span>
+          </div>
+          <div class="viz viz-term mono" aria-hidden="true">
+            <div class="term-dots"><i></i><i></i><i></i></div>
+            <pre id="term"><span class="p">$</span> docker compose up -d
+<span class="ok">✓</span> api      fastapi   :8000
+<span class="ok">✓</span> worker   celery    ready
+<span class="ok">✓</span> db       postgres  healthy</pre>
+          </div>
+          <h3>Ingénierie logicielle</h3>
+          <p>Applications complètes, du backend au mobile&nbsp;: APIs REST, interfaces web et mobiles, conteneurisation, CI/CD et téléphonie SIP auto-hébergée.</p>
+          <ul class="kw mono"><li>FastAPI</li><li>Django</li><li>React</li><li>Flutter</li><li>.NET / C#</li></ul>
+          <button class="card-link mono" type="button" data-set-lens="dev">Lentille Dev <span aria-hidden="true">→</span></button>
+        </article>
+
+        <article class="card disc disc-edu reveal lensable" data-tags="edu">
+          <div class="disc-top">
+            <span class="disc-num mono">05</span>
+            <span class="disc-kicker mono">Enseigner · Former</span>
+          </div>
+          <div class="viz viz-dots" aria-hidden="true"><svg id="dots" viewBox="0 0 250 80" preserveAspectRatio="xMidYMid meet"></svg></div>
+          <p class="viz-caption mono">500 points = 500 étudiants · <b>85&nbsp;%</b> de réussite</p>
+          <h3>Transmission</h3>
+          <p>Enseignant universitaire depuis 2019, formateur pour la GIZ, fondateur de l'incubateur étudiant AfricaBytes et de compétitions de sensibilisation pour lycéens.</p>
+          <button class="card-link mono" type="button" data-set-lens="edu">Lentille Transmission <span aria-hidden="true">→</span></button>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ CHIFFRES ============ -->
+    <section class="metrics wrap" aria-label="Quelques chiffres">
+      <div class="metric reveal lensable" data-tags="ia data dev edu secu">
+        <span class="metric-v">10<sup>+</sup></span><span class="metric-l">années d'expérience</span>
+      </div>
+      <div class="metric reveal lensable" data-tags="edu">
+        <span class="metric-v">500<sup>+</sup></span><span class="metric-l">étudiants formés</span>
+      </div>
+      <div class="metric reveal lensable" data-tags="edu">
+        <span class="metric-v">85<sup>%</sup></span><span class="metric-l">taux de réussite</span>
+      </div>
+      <div class="metric reveal lensable" data-tags="dev ia">
+        <span class="metric-v">100<sup>k$</sup></span><span class="metric-l">levés (EdTech, MEST Africa)</span>
+      </div>
+      <div class="metric reveal lensable" data-tags="data">
+        <span class="metric-v">−30<sup>%</sup></span><span class="metric-l">coûts d'intervention (paludisme, VIH)</span>
+      </div>
+      <div class="metric reveal lensable" data-tags="data secu">
+        <span class="metric-v">+45<sup>%</sup></span><span class="metric-l">complétude des données de santé</span>
+      </div>
+    </section>
+
+    <!-- ============ PROJET PHARE ============ -->
+    <section class="section wrap lensable" id="sayoon" data-tags="ia dev data">
+      <header class="section-head reveal">
+        <p class="section-index mono">02 / Projet phare</p>
+        <h2>SAYOON — <em>un agent vocal</em> qui appelle les patients.</h2>
+        <p class="lead">Agent vocal autonome pour le suivi des patients atteints de tuberculose au Sénégal, sur une téléphonie auto-hébergée. Le pipeline complet est en phase d'évaluation, avant déploiement, et testé sur des données de patients synthétiques.</p>
+        <p class="status mono"><span class="dot"></span>2026 — en cours · évaluation pré-déploiement</p>
+      </header>
+
+      <div class="case">
+        <div class="case-block reveal">
+          <p class="block-title mono">fig.02 — boucle vocale temps réel</p>
+          <ol class="pipeline">
+            <li><span class="mono">01</span><b>Appel SIP</b><small>FreeSWITCH · mod_audio_fork</small></li>
+            <li><span class="mono">02</span><b>Détection de parole</b><small>Silero VAD (ONNX) · fin de tour 800&nbsp;ms</small></li>
+            <li><span class="mono">03</span><b>Écoute + décision</b><small>Gemini 2.5 Flash · ASR et décision en un seul appel</small></li>
+            <li><span class="mono">04</span><b>Garde-fous</b><small>Sortie JSON stricte · validation en aval</small></li>
+            <li><span class="mono">05</span><b>Synthèse vocale</b><small>Gemini TTS · invites fixes pré-synthétisées</small></li>
+          </ol>
+          <p class="pipeline-foot mono">Orchestration Python asyncio · PostgreSQL · Redis / Celery · Neo4j · transfert structuré vers un opérateur humain</p>
+        </div>
+
+        <div class="case-block reveal">
+          <p class="block-title mono">fig.03 — latence d'un tour complet (secondes)</p>
+          <div class="latency" role="img" aria-label="Latence : 6,5 s avant optimisation, 3,7 s après mise en cache, médiane actuelle 3,1 s, p90 9,2 s, objectif 1,8 s.">
+            <div class="lat-row"><span class="lat-l">Avant optimisation</span><span class="lat-bar"><i style="--w:65%"></i></span><span class="lat-v mono">6,5</span></div>
+            <div class="lat-row"><span class="lat-l">Après cache TTS</span><span class="lat-bar"><i style="--w:37%"></i></span><span class="lat-v mono">3,7</span></div>
+            <div class="lat-row is-accent"><span class="lat-l">Médiane actuelle</span><span class="lat-bar"><i style="--w:31%"></i></span><span class="lat-v mono">3,1</span></div>
+            <div class="lat-row is-muted"><span class="lat-l">p90 actuel</span><span class="lat-bar"><i style="--w:92%"></i></span><span class="lat-v mono">9,2</span></div>
+            <div class="lat-target" style="--x:0.18"><span class="mono">objectif 1,8&nbsp;s</span></div>
+          </div>
+          <p class="note">En mesurant la latence de chaque étape, j'ai vu que la queue de la synthèse vocale pesait le plus sur le p90. La mise en cache des invites fixes a réduit le tour de 6,5&nbsp;s à 3,7&nbsp;s. L'optimisation continue.</p>
+        </div>
+
+        <dl class="case-stats reveal">
+          <div><dt class="mono">appels réels</dt><dd>61</dd></div>
+          <div><dt class="mono">tours de parole analysés</dt><dd>156</dd></div>
+          <div><dt class="mono">LLM local sur CPU</dt><dd>19–47&nbsp;s<small>par décision, jugé non viable</small></dd></div>
+          <div><dt class="mono">langues</dt><dd>FR · WO<small>essais de TTS en wolof</small></dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- ============ PROJETS ============ -->
+    <section class="section wrap" id="projets">
+      <header class="section-head reveal">
+        <p class="section-index mono">03 / Projets</p>
+        <h2>Ce que j'ai <em>construit</em>.</h2>
+      </header>
+
+      <div class="projects">
+        <article class="project reveal lensable" data-tags="data ia">
+          <p class="project-meta mono">2026 · HarvestHealth</p>
+          <h3>DHIS2HARVEST</h3>
+          <p>Pipeline qui transforme les données sanitaires nationales DHIS2 en outils prédictifs et d'aide à la décision, piloté sur la surveillance du paludisme. Équipe lauréate du hackathon national.</p>
+          <ul class="tags"><li data-t="data">Données</li><li data-t="ia">IA</li></ul>
+        </article>
+
+        <article class="project reveal lensable" data-tags="ia data dev">
+          <p class="project-meta mono">2026 · Ministère de la Santé</p>
+          <h3>Interroger DHIS2 en langage naturel</h3>
+          <p>Agent conversationnel qui restitue des indicateurs au personnel médical et aux agents de terrain, sans SQL ni tableau de bord.</p>
+          <ul class="tags"><li data-t="ia">IA</li><li data-t="data">Données</li><li data-t="dev">Dev</li></ul>
+        </article>
+
+        <article class="project reveal lensable" data-tags="data">
+          <p class="project-meta mono">2026 · IRESSEF · DSWB</p>
+          <h3>Cartographie du risque paludisme &amp; VIH</h3>
+          <p>Modèles de machine learning qui identifient les zones à haut risque. Résultat&nbsp;: coûts d'intervention réduits de 30&nbsp;%.</p>
+          <ul class="tags"><li data-t="data">Données</li></ul>
+        </article>
+
+        <article class="project reveal lensable" data-tags="ia dev">
+          <p class="project-meta mono">2022–2025 · Dobande</p>
+          <h3>MegaQuest</h3>
+          <p>Outil NLP de collecte, d'analyse et de scoring automatisés de grands volumes de texte. Plus de 200 utilisateurs actifs.</p>
+          <ul class="tags"><li data-t="ia">IA</li><li data-t="dev">Dev</li></ul>
+        </article>
+
+        <article class="project reveal lensable" data-tags="dev edu ia">
+          <p class="project-meta mono">2022–2025 · Dobande</p>
+          <h3>Into Dobande</h3>
+          <p>Plateforme d'apprentissage gamifiée (programmation, marketing numérique), avec progression et récompenses optimisées par l'IA.</p>
+          <ul class="tags"><li data-t="dev">Dev</li><li data-t="edu">Transmission</li><li data-t="ia">IA</li></ul>
+        </article>
+
+        <article class="project reveal lensable" data-tags="ia data">
+          <p class="project-meta mono">Mémoire · M2 IA</p>
+          <h3>Graph RAG comptable</h3>
+          <p>Chatbot en langage naturel sur la balance et le grand livre, qui génère automatiquement les états financiers. Travaux associés sur la détection de fraude par graphes.</p>
+          <ul class="tags"><li data-t="ia">IA</li><li data-t="data">Données</li></ul>
+        </article>
+
+        <article class="project reveal lensable" data-tags="secu">
+          <p class="project-meta mono">Mémoire · M2 Cybersécurité</p>
+          <h3>Financements sécurisés par blockchain</h3>
+          <p>Sécurisation des versements de bourses et de financements de recherche&nbsp;: registre distribué, modélisation des menaces, hypothèses vérifiables.</p>
+          <ul class="tags"><li data-t="secu">Sécurité</li></ul>
+        </article>
+
+        <article class="project reveal lensable" data-tags="secu edu">
+          <p class="project-meta mono">ISM · UCAO · CCS</p>
+          <h3>Labs d'intrusion</h3>
+          <p>Environnements d'entraînement pour le club de cybersécurité des campus sénégalais (Kali Linux, OWASP BWA, Metasploitable&nbsp;2).</p>
+          <ul class="tags"><li data-t="secu">Sécurité</li><li data-t="edu">Transmission</li></ul>
+        </article>
+
+        <article class="project reveal lensable" data-tags="secu edu">
+          <p class="project-meta mono">Initiateur</p>
+          <h3>Xamtech Challenge</h3>
+          <p>Compétition de sensibilisation à la cybersécurité pour les élèves du secondaire.</p>
+          <ul class="tags"><li data-t="secu">Sécurité</li><li data-t="edu">Transmission</li></ul>
+        </article>
+
+        <article class="project reveal lensable" data-tags="edu secu dev">
+          <p class="project-meta mono">2026 · Porteur de projet</p>
+          <h3>Code en Herbe</h3>
+          <p>Programme éducatif numérique pour les 10–18&nbsp;ans d'Afrique francophone&nbsp;: code, sécurité numérique et orientation, avec un site d'exercices compagnon.</p>
+          <ul class="tags"><li data-t="edu">Transmission</li><li data-t="secu">Sécurité</li><li data-t="dev">Dev</li></ul>
+        </article>
+
+        <article class="project reveal lensable" data-tags="data dev">
+          <p class="project-meta mono">2024–2025 · UIDT, UFR Santé</p>
+          <h3>Guiss Tali</h3>
+          <p>Plateforme de collecte et de suivi de données de santé des conducteurs&nbsp;: rendez-vous médicaux, visualisation, modèles prédictifs.</p>
+          <ul class="tags"><li data-t="data">Données</li><li data-t="dev">Dev</li></ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ PARCOURS ============ -->
+    <section class="section wrap" id="parcours">
+      <header class="section-head reveal">
+        <p class="section-index mono">04 / Parcours</p>
+        <h2>Entre ingénierie, <em>conseil</em> et enseignement.</h2>
+      </header>
+
+      <ol class="timeline">
+        <li class="reveal lensable" data-tags="data ia secu">
+          <span class="tl-date mono">2026 —</span>
+          <div class="tl-body">
+            <h3>Consultant en systèmes d'information santé</h3>
+            <p class="tl-org">IRESSEF, DSWB &amp; Ministère de la Santé · Dakar</p>
+            <p>Agent conversationnel sur DHIS2, modèles de risque paludisme et VIH, automatisation du nettoyage des données et sécurisation des flux de la plateforme nationale.</p>
+          </div>
+        </li>
+        <li class="reveal lensable" data-tags="data dev ia secu">
+          <span class="tl-date mono">2026 —</span>
+          <div class="tl-body">
+            <h3>Co-fondateur &amp; Directeur technique</h3>
+            <p class="tl-org">HarvestHealth SARL · Dakar</p>
+            <p>Méthodologie data science entre HarvestLab (recherche) et HarvestHealth (valorisation), cadre de confidentialité et de propriété des données de santé.</p>
+          </div>
+        </li>
+        <li class="reveal lensable" data-tags="secu ia edu">
+          <span class="tl-date mono">2026</span>
+          <div class="tl-body">
+            <h3>Expert court terme — Cybersécurité &amp; IA</h3>
+            <p class="tl-org">GIZ / GOPA · programme Sen'Inclusion</p>
+            <p>Conception et animation d'un module de 15&nbsp;jours pour un public adulte non spécialiste.</p>
+          </div>
+        </li>
+        <li class="reveal lensable" data-tags="data dev">
+          <span class="tl-date mono">2024 — 2025</span>
+          <div class="tl-body">
+            <h3>Chef de projet &amp; Lead developer</h3>
+            <p class="tl-org">Guiss Tali · UIDT, UFR Santé</p>
+            <p>Plateforme full-stack de suivi épidémiologique et modèles prédictifs.</p>
+          </div>
+        </li>
+        <li class="reveal lensable" data-tags="dev ia edu secu">
+          <span class="tl-date mono">2022 — 2025</span>
+          <div class="tl-body">
+            <h3>Co-fondateur, Responsable technique &amp; financier</h3>
+            <p class="tl-org">Dobande Technologies · incubation MEST Africa</p>
+            <p>Into Dobande et MegaQuest, architecture et sécurité des données utilisateurs, levée de 100&nbsp;000&nbsp;USD auprès d'investisseurs internationaux.</p>
+          </div>
+        </li>
+        <li class="reveal lensable" data-tags="data secu">
+          <span class="tl-date mono">2021 — 2022</span>
+          <div class="tl-body">
+            <h3>Responsable du pôle comptable</h3>
+            <p class="tl-org">Cabinet Audit et Conseil 2MI</p>
+            <p>Portefeuille de plus de 10 clients, confidentialité des données comptables et fiscales.</p>
+          </div>
+        </li>
+        <li class="reveal lensable" data-tags="edu secu dev data ia">
+          <span class="tl-date mono">2019 —</span>
+          <div class="tl-body">
+            <h3>Enseignant universitaire &amp; formateur</h3>
+            <p class="tl-org">ISM, UCAO, SMI, Ensup Élite, ISIF · Thiès &amp; Dakar</p>
+            <p>Python, .NET/C#, développement web, bases de données, machine learning, sécurité des systèmes et réseaux. Encadrement de projets de fin d'études, incubés via AfricaBytes.</p>
+          </div>
+        </li>
+        <li class="reveal lensable" data-tags="dev">
+          <span class="tl-date mono">2016 — 2022</span>
+          <div class="tl-body">
+            <h3>Chef de projet &amp; Développeur</h3>
+            <p class="tl-org">DigitKiosk @ 2STB · Chroflix</p>
+            <p>Plateformes web et mobiles de lecture et de vente de contenus de presse en ligne.</p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <!-- ============ FORMATION & STACK ============ -->
+    <section class="section wrap split" id="formation">
+      <div>
+        <header class="section-head reveal">
+          <p class="section-index mono">05 / Formation</p>
+          <h2>Un double <em>Master</em>.</h2>
+        </header>
+        <ul class="edu-list">
+          <li class="reveal lensable" data-tags="ia data">
+            <p class="mono">M2 · UIDT, Thiès</p>
+            <h3>Intelligence Artificielle &amp; Ingénierie de Données</h3>
+            <p>Mémoire&nbsp;: chatbot NLP + Graph RAG pour l'analyse comptable.</p>
+          </li>
+          <li class="reveal lensable" data-tags="secu">
+            <p class="mono">M2 · UNCHK</p>
+            <h3>Sciences Informatiques &amp; Mathématiques de la Cybersécurité</h3>
+            <p>Mémoire&nbsp;: sécurisation de financements par blockchain.</p>
+          </li>
+          <li class="reveal lensable" data-tags="data">
+            <p class="mono">M1 · UIDT · 2023</p>
+            <h3>Audit, Contrôle &amp; Analyse de Données</h3>
+          </li>
+          <li class="reveal lensable" data-tags="dev data">
+            <p class="mono">Licence · UIDT · 2019 &nbsp;/&nbsp; DSG · ISM · 2019</p>
+            <h3>Management Informatisé des Organisations · Administration des Affaires</h3>
+          </li>
+          <li class="reveal lensable" data-tags="dev ia">
+            <p class="mono">MEST Africa</p>
+            <h3>Programme d'entrepreneuriat technologique</h3>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <header class="section-head reveal">
+          <p class="section-index mono">06 / Outils</p>
+          <h2>La <em>boîte à outils</em>.</h2>
+        </header>
+        <div class="stack">
+          <div class="stack-group reveal lensable" data-tags="ia">
+            <p class="stack-title mono" data-t="ia">IA &amp; agents</p>
+            <p>Gemini, OpenAI API, Hugging Face, Mistral / Ollama, RAG et Graph RAG, PyTorch, TensorFlow, Keras, Transformers</p>
+          </div>
+          <div class="stack-group reveal lensable" data-tags="secu">
+            <p class="stack-title mono" data-t="secu">Sécurité</p>
+            <p>Kali Linux, Metasploit, OWASP, ISO/IEC 27001, cryptographie, blockchain, protection des données personnelles</p>
+          </div>
+          <div class="stack-group reveal lensable" data-tags="data">
+            <p class="stack-title mono" data-t="data">Données</p>
+            <p>Python (pandas, NumPy, scikit-learn), Prophet, SQL, PostgreSQL, MySQL, MongoDB, Neo4j, DHIS2, Power BI, Tableau, ETL</p>
+          </div>
+          <div class="stack-group reveal lensable" data-tags="dev">
+            <p class="stack-title mono" data-t="dev">Ingénierie</p>
+            <p>FastAPI, Django, React, Node.js, Flutter, .NET / C#, Docker, CI/CD, Git, Redis / Celery, FreeSWITCH / SIP</p>
+          </div>
+          <div class="stack-group reveal lensable" data-tags="edu">
+            <p class="stack-title mono" data-t="edu">Conduite</p>
+            <p>Ingénierie de formation, gestion de projet agile (Scrum), budgétisation, documents institutionnels, négociation avec partenaires publics</p>
+          </div>
+          <div class="stack-group reveal">
+            <p class="stack-title mono">Langues</p>
+            <p>Français (langue maternelle) · Anglais (professionnel) · Wolof (courant)</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="contact wrap" id="contact">
+      <div class="contact-inner reveal">
+        <p class="section-index mono">07 / Contact</p>
+        <h2>Construisons quelque chose de <em>robuste</em>.</h2>
+        <p class="lead">Missions de conseil, expertise IA ou cybersécurité, formation, collaboration de recherche&nbsp;: écrivez-moi.</p>
+        <div class="contact-actions">
+          <a class="contact-mail" href="mailto:naelmansa@gmail.com">naelmansa@gmail.com</a>
+          <button class="btn btn-ghost copy" type="button" data-copy="naelmansa@gmail.com">Copier</button>
+        </div>
+        <ul class="contact-links mono">
+          <li><a href="https://github.com/mansanael" target="_blank" rel="noopener">github.com/mansanael ↗</a></li>
+          <li>Dakar · Thiès, Sénégal</li>
+          <li>Références sur demande</li>
+        </ul>
+      </div>
     </section>
   </main>
+
+  <footer class="site-footer wrap mono">
+    <span>© <span id="year">2026</span> Magath Alé Coumba Selleh NAEL</span>
+    <span>HTML, CSS et JS écrits à la main · aucun traceur</span>
+  </footer>
+
   <script src="script.js"></script>
 </body>
 </html>
