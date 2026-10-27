@@ -56,12 +56,12 @@
 
   /* ---------- Lentilles ---------- */
   const STATEMENTS = {
-    all:  'Je conçois des systèmes intelligents, sûrs et pilotés par la donnée.',
+    all:  "Je rends l'IA compréhensible, sûre et utile, pour les équipes comme pour les systèmes.",
     ia:   'Je construis des agents IA qui tiennent en conditions réelles : réseau faible, utilisateurs bilingues.',
     secu: 'Je sécurise les systèmes qui portent des données sensibles, de la santé publique à la finance.',
     data: 'Je transforme des données nationales en décisions de santé publique.',
     dev:  "Je livre des applications complètes, de l'API jusqu'au téléphone du patient.",
-    edu:  'Je forme des ingénieurs et des citoyens numériques depuis 2019.'
+    edu:  "J'anime des ateliers où chacun ose s'exprimer, et repart avec du concret."
   };
   const statement = $('#statement');
   const lensButtons = $$('.lens [data-set-lens]');
@@ -222,6 +222,115 @@
     });
   });
 
+  /* ---------- Formulaire de contact ---------- */
+  const form = $('#contact-form');
+  const CONTACT_EMAIL = 'naelmansa@gmail.com';
+
+  // Les boutons « Demander ce format » préremplissent le type de demande
+  $$('[data-request]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const select = $('#f-request');
+      select.value = btn.dataset.request;
+      clearError(select);
+      $('#contact').scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth' });
+      setTimeout(() => $('#f-name').focus({ preventScroll: true }), reduceMotion ? 0 : 600);
+    });
+  });
+
+  const MESSAGES = {
+    valueMissing: 'Ce champ est obligatoire.',
+    typeMismatch: 'Adresse e-mail invalide.',
+    tooShort: (el) => `Merci de détailler un peu plus (${el.minLength} caractères minimum).`,
+    rangeUnderflow: 'Valeur trop petite.',
+    rangeOverflow: 'Valeur trop grande.',
+    badInput: 'Valeur invalide.'
+  };
+
+  function errorSlot(el) { return el.closest('.field').querySelector('.field-error'); }
+  function clearError(el) {
+    const field = el.closest('.field');
+    field.classList.remove('invalid');
+    el.removeAttribute('aria-invalid');
+    const slot = errorSlot(el);
+    if (slot) slot.textContent = '';
+  }
+  function validate(el) {
+    if (el.checkValidity()) { clearError(el); return true; }
+    const key = Object.keys(MESSAGES).find((k) => el.validity[k]);
+    const msg = MESSAGES[key] || el.validationMessage;
+    el.closest('.field').classList.add('invalid');
+    el.setAttribute('aria-invalid', 'true');
+    const slot = errorSlot(el);
+    if (slot) slot.textContent = typeof msg === 'function' ? msg(el) : msg;
+    return false;
+  }
+
+  function mailtoFallback(data) {
+    const body = Object.entries(data)
+      .filter(([k, v]) => !k.startsWith('_') && v)
+      .map(([k, v]) => `${k} : ${v}`).join('\n');
+    return `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(data._subject)}&body=${encodeURIComponent(body)}`;
+  }
+
+  if (form) {
+    const fields = $$('input:not([type="hidden"]):not(.hp), select, textarea', form).filter((el) => el.willValidate);
+    const status = $('#form-status');
+    const submit = $('button[type="submit"]', form);
+    const message = $('#f-message');
+    const count = $('#f-count');
+
+    fields.forEach((el) => {
+      el.addEventListener('blur', () => { if (el.value || el.type === 'checkbox') validate(el); });
+      el.addEventListener(el.tagName === 'SELECT' || el.type === 'checkbox' ? 'change' : 'input', () => {
+        if (el.closest('.field').classList.contains('invalid')) validate(el);
+      });
+    });
+    message.addEventListener('input', () => { count.textContent = message.value.length; });
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const invalid = fields.filter((el) => !validate(el));
+      if (invalid.length) {
+        invalid[0].focus();
+        status.className = 'form-status err';
+        status.textContent = 'Merci de compléter les champs signalés.';
+        return;
+      }
+
+      const data = Object.fromEntries(new FormData(form));
+      if (data._honey) return; // robot
+      data._subject = `Portfolio — ${data['Type de demande']} — ${data.Organisation}`;
+
+      submit.disabled = true;
+      status.className = 'form-status';
+      status.textContent = 'Envoi en cours…';
+
+      try {
+        const res = await fetch(`https://formsubmit.co/ajax/${CONTACT_EMAIL}`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body: JSON.stringify(data)
+        });
+        const json = await res.json().catch(() => ({}));
+        if (!res.ok || String(json.success) !== 'true') throw new Error(json.message || res.statusText);
+
+        form.reset();
+        count.textContent = '0';
+        status.className = 'form-status ok';
+        status.textContent = `Merci ${data.Nom.split(' ')[0]}, votre demande est bien envoyée. Je vous réponds sous 48 heures ouvrées.`;
+      } catch (err) {
+        status.className = 'form-status err';
+        status.innerHTML = '';
+        const link = document.createElement('a');
+        link.href = mailtoFallback(data);
+        link.textContent = 'envoyer la demande depuis votre messagerie';
+        status.append("L'envoi n'a pas abouti. Vous pouvez ", link, '.');
+      } finally {
+        submit.disabled = false;
+      }
+    });
+  }
+
   const year = $('#year');
   if (year) year.textContent = new Date().getFullYear();
 
@@ -232,18 +341,18 @@
     const canvas = $('#graph');
     const ctx = canvas.getContext('2d');
     const DOMAINS = ['ia', 'secu', 'data', 'dev', 'edu'];
-    const HUB_LABEL = { ia: 'IA', secu: 'SÉCURITÉ', data: 'DONNÉES', dev: 'DEV', edu: 'TRANSMISSION' };
+    const HUB_LABEL = { ia: 'IA', secu: 'SÉCURITÉ', data: 'DONNÉES', dev: 'DEV', edu: 'FORMATION' };
     const SKILLS = {
       ia:   ['LLM', 'Graph RAG', 'NLP', 'Agents vocaux', 'Gemini', 'PyTorch', 'Hugging Face'],
       secu: ['Pentest', 'OWASP', 'ISO 27001', 'Kali Linux', 'Cryptographie', 'Blockchain', 'Metasploit'],
       data: ['DHIS2', 'pandas', 'scikit-learn', 'Prophet', 'Neo4j', 'Power BI', 'PostgreSQL'],
       dev:  ['FastAPI', 'Django', 'React', 'Flutter', 'Docker', 'CI/CD', 'FreeSWITCH'],
-      edu:  ['500+ étudiants', 'GIZ', 'AfricaBytes', 'Xamtech', 'Code en Herbe']
+      edu:  ['Facilitation', '500+ étudiants', 'GIZ', 'Ateliers IA', '3FPT', 'Xamtech', 'Code en Herbe']
     };
     const CROSS = [
       ['Neo4j', 'Graph RAG'], ['DHIS2', 'NLP'], ['FastAPI', 'LLM'], ['FreeSWITCH', 'Agents vocaux'],
       ['PostgreSQL', 'Django'], ['scikit-learn', 'PyTorch'], ['Xamtech', 'Pentest'], ['GIZ', 'ISO 27001'],
-      ['Code en Herbe', 'React'], ['500+ étudiants', 'Kali Linux'], ['Neo4j', 'Blockchain'], ['Docker', 'Pentest']
+      ['Code en Herbe', 'React'], ['Ateliers IA', 'LLM'],['500+ étudiants', 'Kali Linux'], ['Neo4j', 'Blockchain'], ['Docker', 'Pentest']
     ];
 
     // Générateur pseudo-aléatoire déterministe : la mise en page reste stable
