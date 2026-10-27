@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="en" data-lens="all">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Magath NAEL — AI, Cybersecurity &amp; Data Trainer and Consultant</title>
+  <meta name="description" content="Magath NAEL — Trainer, facilitator and consultant in artificial intelligence, cybersecurity and digital transformation. Applied AI engineer and data scientist. Dakar / Thiès, Senegal.">
+  <meta name="theme-color" content="#0b0c0e">
+  <link rel="alternate" hreflang="fr" href="https://mansanael.netlify.app/">
+  <link rel="alternate" hreflang="en" href="https://mansanael.netlify.app/en/">
+  <link rel="alternate" hreflang="x-default" href="https://mansanael.netlify.app/">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230b0c0e'/%3E%3Ctext x='16' y='21' text-anchor='middle' font-family='monospace' font-size='13' font-weight='600' fill='%23e9e7e2'%3EMN%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+  <script>
+    document.documentElement.classList.add('js');
+    try {
+      var t = localStorage.getItem('theme');
+      if (t) document.documentElement.setAttribute('data-theme', t);
+    } catch (e) {}
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <!-- ============ HEADER ============ -->
+  <header class="site-header">
+    <div class="bar wrap">
+      <a class="brand" href="#top" aria-label="Home">
+        <span class="brand-mark mono">MN</span>
+        <span class="brand-name">Magath NAEL</span>
+      </a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#disciplines">Disciplines</a>
+        <a href="#training">Training</a>
+        <a href="#sayoon">Flagship</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a class="lang-switch mono" href="../index.html" hreflang="fr" lang="fr" aria-label="Lire ce site en français"><span>FR</span><b>EN</b></a>
+      <button class="theme-toggle" type="button" aria-label="Toggle theme">
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M12 7a5 5 0 0 1 0 10z" fill="currentColor"/></svg>
+      </button>
+    </div>
+    <div class="lens-row wrap">
+      <span class="lens-label mono">Lens</span>
+      <div class="lens" role="group" aria-label="Read the site through one specialty">
+        <button type="button" data-set-lens="all" aria-pressed="true"><i></i>All</button>
+        <button type="button" data-set-lens="ia" aria-pressed="false"><i></i>AI</button>
+        <button type="button" data-set-lens="secu" aria-pressed="false"><i></i>Security</button>
+        <button type="button" data-set-lens="data" aria-pressed="false"><i></i>Data</button>
+        <button type="button" data-set-lens="dev" aria-pressed="false"><i></i>Dev</button>
+        <button type="button" data-set-lens="edu" aria-pressed="false"><i></i>Training</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero wrap" id="top">
+      <div class="hero-text">
+        <p class="eyebrow mono"><span class="pulse" aria-hidden="true"></span>Dakar · Thiès — 14.79° N, 16.93° W</p>
+        <h1 class="hero-name">Magath <em>Nael</em></h1>
+        <p class="hero-role mono">AI trainer &amp; facilitator · Cybersecurity · Data</p>
+        <p class="hero-statement" id="statement" aria-live="polite">I make AI understandable, safe and useful, for teams and for systems alike.</p>
+        <p class="hero-sub">Two Master's degrees, in Artificial Intelligence and in Cybersecurity, and over ten years across training, consulting and engineering. I run workshops for mixed adult audiences and build real AI projects for West African conditions: weak connectivity, sensitive data, bilingual French&nbsp;/&nbsp;Wolof users.</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#contact">Request a training</a>
+          <a class="btn btn-ghost" href="#training">See my formats <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+      <figure class="hero-graph" aria-hidden="true">
+        <canvas id="graph"></canvas>
+        <figcaption class="mono">fig.01 — skills graph · pick a lens</figcaption>
+      </figure>
+    </section>
+
+    <!-- ============ DISCIPLINES ============ -->
+    <section class="section wrap" id="disciplines">
+      <header class="section-head reveal">
+        <p class="section-index mono">01 / Disciplines</p>
+        <h2>Five disciplines, <em>one system</em>.</h2>
+        <p class="lead">Every project I lead combines at least two of these fields. Pick one to reread the whole site through it.</p>
+      </header>
+
+      <div class="bento">
+        <article class="card disc disc-ia reveal lensable" data-tags="ia">
+          <div class="disc-top">
+            <span class="disc-num mono">01</span>
+            <span class="disc-kicker mono">LLM · NLP · Voice</span>
+          </div>
+          <div class="viz viz-wave" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+          <h3>Applied AI</h3>
+          <p>Conversational and voice agents, RAG and Graph RAG, strict JSON outputs with guardrails. Every system is evaluated in real conditions, latency included.</p>
+          <ul class="kw mono"><li>Gemini</li><li>OpenAI</li><li>Hugging Face</li><li>Mistral / Ollama</li><li>PyTorch</li></ul>
+          <button class="card-link mono" type="button" data-set-lens="ia">AI lens <span aria-hidden="true">→</span></button>
+        </article>
+
+        <article class="card disc disc-secu reveal lensable" data-tags="secu">
+          <div class="disc-top">
+            <span class="disc-num mono">02</span>
+            <span class="disc-kicker mono">Pentest · InfoSec · Crypto</span>
+          </div>
+          <div class="viz viz-hash mono" aria-hidden="true">
+            <span class="hash-line">sha256</span>
+            <span class="hash-out" id="hash">9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08</span>
+            <span class="hash-state"><b></b>integrity verified</span>
+          </div>
+          <h3>Cybersecurity</h3>
+          <p>Penetration testing, vulnerability analysis, securing health data platforms, cryptography and blockchain. I also teach ethical hacking.</p>
+          <ul class="kw mono"><li>Kali Linux</li><li>Metasploit</li><li>OWASP</li><li>ISO/IEC 27001</li><li>Blockchain</li></ul>
+          <button class="card-link mono" type="button" data-set-lens="secu">Security lens <span aria-hidden="true">→</span></button>
+        </article>
+
+        <article class="card disc disc-data reveal lensable" data-tags="data">
+          <div class="disc-top">
+            <span class="disc-num mono">03</span>
+            <span class="disc-kicker mono">ML · Decision support</span>
+          </div>
+          <div class="viz viz-bars" aria-hidden="true">
+            <span style="--h:38%"></span><span style="--h:52%"></span><span style="--h:44%"></span><span style="--h:61%"></span><span style="--h:57%"></span><span style="--h:72%"></span><span style="--h:68%"></span><span style="--h:83%"></span><span style="--h:79%" class="hi"></span>
+          </div>
+          <h3>Data analysis</h3>
+          <p>From national DHIS2 data to decision-support models: high-risk areas for malaria and HIV, anomaly and graph-based fraud detection.</p>
+          <ul class="kw mono"><li>pandas</li><li>scikit-learn</li><li>Prophet</li><li>Neo4j</li><li>Power BI</li></ul>
+          <button class="card-link mono" type="button" data-set-lens="data">Data lens <span aria-hidden="true">→</span></button>
+        </article>
+
+        <article class="card disc disc-dev reveal lensable" data-tags="dev">
+          <div class="disc-top">
+            <span class="disc-num mono">04</span>
+            <span class="disc-kicker mono">Web · Mobile · Infra</span>
+          </div>
+          <div class="viz viz-term mono" aria-hidden="true">
+            <div class="term-dots"><i></i><i></i><i></i></div>
+            <pre id="term"><span class="p">$</span> docker compose up -d
+<span class="ok">✓</span> api      fastapi   :8000
+<span class="ok">✓</span> worker   celery    ready
+<span class="ok">✓</span> db       postgres  healthy</pre>
+          </div>
+          <h3>Software engineering</h3>
+          <p>Complete applications, from backend to mobile: REST APIs, web and mobile interfaces, containers, CI/CD and self-hosted SIP telephony.</p>
+          <ul class="kw mono"><li>FastAPI</li><li>Django</li><li>React</li><li>Flutter</li><li>.NET / C#</li></ul>
+          <button class="card-link mono" type="button" data-set-lens="dev">Dev lens <span aria-hidden="true">→</span></button>
+        </article>
+
+        <article class="card disc disc-edu reveal lensable" data-tags="edu">
+          <div class="disc-top">
+            <span class="disc-num mono">05</span>
+            <span class="disc-kicker mono">Train · Facilitate · Support</span>
+          </div>
+          <div class="viz viz-dots" aria-hidden="true"><svg id="dots" viewBox="0 0 250 80" preserveAspectRatio="xMidYMid meet"></svg></div>
+          <p class="viz-caption mono">500 dots = 500 students · <b>85%</b> pass rate</p>
+          <h3>Training &amp; facilitation</h3>
+          <p>Trainer for GIZ (Sen'Inclusion programme) and 3FPT-funded courses, university lecturer since 2019, trainer of trainers. I lead adult groups of every level and help them converge on concrete outputs.</p>
+          <button class="card-link mono" type="button" data-set-lens="edu">Training lens <span aria-hidden="true">→</span></button>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ METRICS ============ -->
+    <section class="metrics wrap" aria-label="Key figures">
+      <div class="metric reveal lensable" data-tags="ia data dev edu secu">
+        <span class="metric-v">10<sup>+</sup></span><span class="metric-l">years of experience</span>
+      </div>
+      <div class="metric reveal lensable" data-tags="edu">
+        <span class="metric-v">500<sup>+</sup></span><span class="metric-l">students trained</span>
+      </div>
+      <div class="metric reveal lensable" data-tags="edu">
+        <span class="metric-v">85<sup>%</sup></span><span class="metric-l">pass rate</span>
+      </div>
+      <div class="metric reveal lensable" data-tags="dev ia">
+        <span class="metric-v">100<sup>k$</sup></span><span class="metric-l">raised (EdTech, MEST Africa)</span>
+      </div>
+      <div class="metric reveal lensable" data-tags="data">
+        <span class="metric-v">−30<sup>%</sup></span><span class="metric-l">intervention costs (malaria, HIV)</span>
+      </div>
+      <div class="metric reveal lensable" data-tags="data secu">
+        <span class="metric-v">+45<sup>%</sup></span><span class="metric-l">health data completeness</span>
+      </div>
+    </section>
+
+    <!-- ============ TRAINER & CONSULTANT ============ -->
+    <section class="section wrap" id="training">
+      <header class="section-head reveal">
+        <p class="section-index mono">02 / Trainer &amp; consultant</p>
+        <h2>Making AI <em>understandable</em>, without the jargon.</h2>
+        <p class="lead">I run sessions for mixed adult audiences, often unfamiliar with digital tools. My dual background, hands-on teaching and real AI projects, lets me speak honestly about what AI can and cannot do, while staying neutral about tools and vendors.</p>
+      </header>
+
+      <div class="offers">
+        <article class="card offer reveal lensable" data-tags="edu ia">
+          <p class="offer-meta mono"><span>Format 01</span><span>½ day → 3 days</span></p>
+          <h3>AI literacy</h3>
+          <p>A shared foundation to understand generative AI: what it does well, where it goes wrong, and how to use it on real work tasks.</p>
+          <ul class="offer-list">
+            <li>Short demos on concrete cases</li>
+            <li>Prompting, summarising, writing, clustering ideas</li>
+            <li>Limits, bias and hallucinations explained simply</li>
+          </ul>
+          <button class="offer-cta mono" type="button" data-request="AI literacy workshop">Request this format <span aria-hidden="true">→</span></button>
+        </article>
+
+        <article class="card offer reveal lensable" data-tags="edu ia data">
+          <p class="offer-meta mono"><span>Format 02</span><span>1 → 2 days</span></p>
+          <h3>AI use-case workshop</h3>
+          <p>Collective-intelligence facilitation to go from idea to pilot project: gathering, grouping and prioritising your organisation's AI use cases.</p>
+          <ul class="offer-list">
+            <li>Small-group work and plenary debriefs</li>
+            <li>Use-case mapping and prioritisation</li>
+            <li>Actionable summary delivered after the workshop</li>
+          </ul>
+          <button class="offer-cta mono" type="button" data-request="AI use-case workshop / facilitation">Request this format <span aria-hidden="true">→</span></button>
+        </article>
+
+        <article class="card offer reveal lensable" data-tags="edu secu">
+          <p class="offer-meta mono"><span>Format 03</span><span>1 day → 15 days</span></p>
+          <h3>Cybersecurity, AI &amp; data</h3>
+          <p>Responsible use and risk management: personal data protection, confidentiality, digital hygiene and rules for using AI tools at work.</p>
+          <ul class="offer-list">
+            <li>15-day module designed and delivered for GIZ</li>
+            <li>Hands-on scenarios: phishing, passwords, data leaks</li>
+            <li>AI usage policy tailored to your organisation</li>
+          </ul>
+          <button class="offer-cta mono" type="button" data-request="Cybersecurity, AI and data protection training">Request this format <span aria-hidden="true">→</span></button>
+        </article>
+
+        <article class="card offer reveal lensable" data-tags="edu">
+          <p class="offer-meta mono"><span>Format 04</span><span>Tailor-made</span></p>
+          <h3>Leadership &amp; digital transformation</h3>
+          <p>Change management for teams, entrepreneurs and trainers: embracing digital tools, expressing leadership, and passing it on.</p>
+          <ul class="offer-list">
+            <li>“Becoming a leader”, “Daring to go digital”</li>
+            <li>Online presence and social media</li>
+            <li>Train-the-trainer (Excel, digital tools)</li>
+          </ul>
+          <button class="offer-cta mono" type="button" data-request="Leadership and digital transformation">Request this format <span aria-hidden="true">→</span></button>
+        </article>
+      </div>
+
+      <div class="method reveal lensable" data-tags="edu">
+        <p class="block-title mono">fig.02 — how a typical engagement runs</p>
+        <ol class="method-steps">
+          <li><span class="mono">01</span><b>Diagnosis</b><small>Needs assessment, group profile and level, measurable objectives.</small></li>
+          <li><span class="mono">02</span><b>Design</b><small>Visual materials, participant handouts, exercises rooted in your work.</small></li>
+          <li><span class="mono">03</span><b>Delivery</b><small>Participatory sessions, live quizzes, small groups, smooth transitions.</small></li>
+          <li><span class="mono">04</span><b>Debrief</b><small>Learning assessment, mission report, actionable recommendations.</small></li>
+        </ol>
+      </div>
+
+      <ul class="principles">
+        <li class="reveal lensable" data-tags="edu"><b>No jargon</b><span>Every concept starts from an example in participants' daily work.</span></li>
+        <li class="reveal lensable" data-tags="edu"><b>Everyone speaks up</b><span>A safe space for groups with very different levels.</span></li>
+        <li class="reveal lensable" data-tags="edu ia"><b>Honest about limits</b><span>Neutral about tools and vendors on the market.</span></li>
+        <li class="reveal lensable" data-tags="edu"><b>Concrete outputs</b><span>The group leaves with a deliverable, not just notes.</span></li>
+      </ul>
+
+      <div class="missions reveal">
+        <p class="block-title mono">Selected engagements</p>
+        <div class="table-scroll">
+          <table>
+            <thead>
+              <tr><th scope="col">Year</th><th scope="col">Engagement</th><th scope="col">Client</th><th scope="col">Audience</th></tr>
+            </thead>
+            <tbody>
+              <tr class="lensable" data-tags="edu secu ia">
+                <td class="mono">2026</td>
+                <td>Training and facilitation: Cybersecurity &amp; AI, leadership, digital skills, data protection (Sen'Inclusion programme, Goin'Digital project)</td>
+                <td>GIZ · SENUM SA</td>
+                <td>Adults, mixed levels</td>
+              </tr>
+              <tr class="lensable" data-tags="ia data">
+                <td class="mono">2026</td>
+                <td>AI conversational agent on DHIS2 for decision support: needs gathering, business / technical coordination</td>
+                <td>IRESSEF · DSWB · Ministry of Health</td>
+                <td>Field agents, decision-makers</td>
+              </tr>
+              <tr class="lensable" data-tags="edu data ia">
+                <td class="mono">2026</td>
+                <td>National hackathon, DHIS2HARVEST project (winner): co-design, prioritisation, pitch</td>
+                <td>National competition</td>
+                <td>Multidisciplinary teams</td>
+              </tr>
+              <tr class="lensable" data-tags="edu">
+                <td class="mono">Ongoing</td>
+                <td>3FPT-funded professional training: advanced Excel, digital marketing, communication, business organisation</td>
+                <td>Sup'Management Intelligentsia</td>
+                <td>Working adults</td>
+              </tr>
+              <tr class="lensable" data-tags="edu">
+                <td class="mono">2019 — 2026</td>
+                <td>University teaching and train-the-trainer (two-level Excel programme)</td>
+                <td>ISM Thiès · UCAO Thiès · SMI · Building Maginot</td>
+                <td>500+ students, trainers, groups of 30+</td>
+              </tr>
+              <tr class="lensable" data-tags="edu dev">
+                <td class="mono">2022 — 2025</td>
+                <td>Entrepreneurship and incubation programme: innovation methods, collaborative workshops</td>
+                <td>MEST Africa</td>
+                <td>Entrepreneur cohort</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FLAGSHIP PROJECT ============ -->
+    <section class="section wrap lensable" id="sayoon" data-tags="ia dev data">
+      <header class="section-head reveal">
+        <p class="section-index mono">03 / Flagship project</p>
+        <h2>SAYOON — <em>a voice agent</em> that calls patients.</h2>
+        <p class="lead">An autonomous AI voice agent that runs follow-up call campaigns for tuberculosis patients: treatment adherence, side effects, appointments. Institutional lead: IRESSEF, Tambacounda health district. Guiding principle: in production, no medical or patient-identifying data goes through a third-party cloud service. The system is in pre-deployment evaluation, tested on synthetic patient data.</p>
+        <div class="links-row">
+          <p class="status mono"><span class="dot"></span>2026 — ongoing · pre-deployment evaluation</p>
+          <a class="btn btn-ghost" href="https://sayoon.178-33-91-81.sslip.io" target="_blank" rel="noopener">View the service ↗</a>
+          <a class="btn btn-ghost" href="https://sayoon.178-33-91-81.sslip.io/docs" target="_blank" rel="noopener">API documentation ↗</a>
+        </div>
+      </header>
+
+      <div class="case">
+        <div class="case-block reveal">
+          <p class="block-title mono">fig.03 — stage 2 · fully hosted pipeline (current version)</p>
+          <ol class="pipeline">
+            <li><span class="mono">01</span><b>Call</b><small>Twilio gateway for the pilot · hosted telephony planned for production</small></li>
+            <li><span class="mono">02</span><b>Speech recognition</b><small>Vosk · hosted on the server</small></li>
+            <li><span class="mono">03</span><b>Decision</b><small>Local LLM via Ollama · strict JSON output, downstream validation</small></li>
+            <li><span class="mono">04</span><b>Speech synthesis</b><small>Piper · hosted on the server</small></li>
+            <li><span class="mono">05</span><b>Follow-up</b><small>Appointments, side effects, hand-off to a health worker</small></li>
+          </ol>
+          <p class="pipeline-foot mono">FastAPI · call orchestrator · worker and scheduler · PostgreSQL (+ backups) · Redis · Docker Compose</p>
+        </div>
+
+        <div class="case-block reveal">
+          <p class="block-title mono">fig.04 — stage 1 · cloud prototype, full-turn latency (seconds)</p>
+          <div class="latency" role="img" aria-label="Prototype latency: 6.5 s before optimisation, 3.7 s after caching, median 3.1 s, p90 9.2 s, target 1.8 s.">
+            <div class="lat-row"><span class="lat-l">Before optimisation</span><span class="lat-bar"><i style="--w:65%"></i></span><span class="lat-v mono">6.5</span></div>
+            <div class="lat-row"><span class="lat-l">After TTS cache</span><span class="lat-bar"><i style="--w:37%"></i></span><span class="lat-v mono">3.7</span></div>
+            <div class="lat-row is-accent"><span class="lat-l">Median</span><span class="lat-bar"><i style="--w:31%"></i></span><span class="lat-v mono">3.1</span></div>
+            <div class="lat-row is-muted"><span class="lat-l">p90</span><span class="lat-bar"><i style="--w:92%"></i></span><span class="lat-v mono">9.2</span></div>
+            <div class="lat-target" style="--x:0.18"><span class="mono">target 1.8&nbsp;s</span></div>
+          </div>
+          <p class="note">The first prototype relied on Gemini (listening, decision and synthesis) to validate the dialogue quickly. Measuring every stage showed that the speech-synthesis tail weighed most on the p90; caching the fixed prompts cut a turn from 6.5&nbsp;s to 3.7&nbsp;s. These measurements are the baseline for the hosted pipeline, which keeps patient data on the server.</p>
+        </div>
+
+        <dl class="case-stats reveal">
+          <div><dt class="mono">real calls</dt><dd>61</dd></div>
+          <div><dt class="mono">speech turns analysed</dt><dd>156</dd></div>
+          <div><dt class="mono">patient data sent to the cloud</dt><dd>0<small>in production, the whole pipeline is hosted</small></dd></div>
+          <div><dt class="mono">languages</dt><dd>FR · WO<small>Wolof TTS trials</small></dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- ============ PROJECTS ============ -->
+    <section class="section wrap" id="projects">
+      <header class="section-head reveal">
+        <p class="section-index mono">04 / Projects</p>
+        <h2>What I have <em>built</em>.</h2>
+      </header>
+
+      <div class="projects">
+        <article class="project reveal lensable" data-tags="edu dev secu">
+          <p class="project-meta mono">2026 · Sen'Inclusion (GIZ / GOPA)</p>
+          <h3>Jàngale</h3>
+          <p>Field-training management for women entrepreneurs in rural areas: QR-code attendance, collection of work (text, audio, photo), assessments and donor-format reports. Offline-first, quizzes read aloud in Wolof and French, consent and access logging.</p>
+          <ul class="tags"><li data-t="edu">Training</li><li data-t="dev">Dev</li><li data-t="secu">Security</li></ul>
+          <a class="project-link mono" href="https://jangale.178-33-91-81.sslip.io" target="_blank" rel="noopener">View the platform ↗</a>
+        </article>
+
+        <article class="project reveal lensable" data-tags="data ia">
+          <p class="project-meta mono">2026 · HarvestHealth</p>
+          <h3>DHIS2HARVEST</h3>
+          <p>A pipeline that turns national DHIS2 health data into predictive and decision-support tools, piloted on malaria surveillance. Winning team of the national hackathon.</p>
+          <ul class="tags"><li data-t="data">Data</li><li data-t="ia">AI</li></ul>
+          <a class="project-link mono" href="https://lab.dhis-harvest.com" target="_blank" rel="noopener">View the lab ↗</a>
+        </article>
+
+        <article class="project reveal lensable" data-tags="ia data dev">
+          <p class="project-meta mono">2026 · Ministry of Health</p>
+          <h3>Querying DHIS2 in natural language</h3>
+          <p>A conversational agent that serves indicators to medical staff and field agents, with no SQL and no dashboard.</p>
+          <ul class="tags"><li data-t="ia">AI</li><li data-t="data">Data</li><li data-t="dev">Dev</li></ul>
+        </article>
+
+        <article class="project reveal lensable" data-tags="data">
+          <p class="project-meta mono">2026 · IRESSEF · DSWB</p>
+          <h3>Malaria &amp; HIV risk mapping</h3>
+          <p>Machine learning models that identify high-risk areas. Result: intervention costs cut by 30%.</p>
+          <ul class="tags"><li data-t="data">Data</li></ul>
+        </article>
+
+        <article class="project reveal lensable" data-tags="ia dev">
+          <p class="project-meta mono">2022–2025 · Dobande</p>
+          <h3>MegaQuest</h3>
+          <p>An NLP tool for automated collection, analysis and scoring of large volumes of text. Over 200 active users.</p>
+          <ul class="tags"><li data-t="ia">AI</li><li data-t="dev">Dev</li></ul>
+          <a class="project-link mono" href="https://megaquest.io" target="_blank" rel="noopener">View the site ↗</a>
+        </article>
+
+        <article class="project reveal lensable" data-tags="dev edu ia">
+          <p class="project-meta mono">2022–2025 · Dobande</p>
+          <h3>Into Dobande</h3>
+          <p>A gamified learning platform (programming, digital marketing), with AI-optimised progression and rewards.</p>
+          <ul class="tags"><li data-t="dev">Dev</li><li data-t="edu">Training</li><li data-t="ia">AI</li></ul>
+          <a class="project-link mono" href="https://mansanael.github.io/dobande-web/" target="_blank" rel="noopener">Play online ↗</a>
+        </article>
+
+        <article class="project reveal lensable" data-tags="ia data">
+          <p class="project-meta mono">Thesis · MSc AI</p>
+          <h3>Accounting Graph RAG</h3>
+          <p>A natural-language chatbot over the trial balance and general ledger that generates financial statements automatically. Related work on graph-based fraud detection.</p>
+          <ul class="tags"><li data-t="ia">AI</li><li data-t="data">Data</li></ul>
+        </article>
+
+        <article class="project reveal lensable" data-tags="secu">
+          <p class="project-meta mono">Thesis · MSc Cybersecurity</p>
+          <h3>Blockchain-secured funding</h3>
+          <p>Securing scholarship and research-grant disbursements: distributed ledger, threat modelling, verifiable assumptions.</p>
+          <ul class="tags"><li data-t="secu">Security</li></ul>
+        </article>
+
+        <article class="project reveal lensable" data-tags="secu dev">
+          <p class="project-meta mono">2026 · President's Prize (entry)</p>
+          <h3>Jàmbaar-Shield</h3>
+          <p>A distributed ledger to trace defence procurement flows: every transaction is sealed and verifiable by cryptographic proof, and every access by a cleared auditor is itself logged on the ledger. Rust, CometBFT consensus on 4&nbsp;nodes.</p>
+          <ul class="tags"><li data-t="secu">Security</li><li data-t="dev">Dev</li></ul>
+          <a class="project-link mono" href="http://178.33.91.81:8088/jury/" target="_blank" rel="noopener">Presentation page ↗</a>
+        </article>
+
+        <article class="project reveal lensable" data-tags="secu edu">
+          <p class="project-meta mono">ISM · UCAO · CCS</p>
+          <h3>Penetration-testing labs</h3>
+          <p>Training environments for the Senegalese campus cybersecurity club (Kali Linux, OWASP BWA, Metasploitable&nbsp;2).</p>
+          <ul class="tags"><li data-t="secu">Security</li><li data-t="edu">Training</li></ul>
+        </article>
+
+        <article class="project reveal lensable" data-tags="secu edu">
+          <p class="project-meta mono">Founder</p>
+          <h3>Xamtech Challenge</h3>
+          <p>A cybersecurity awareness competition for secondary-school students.</p>
+          <ul class="tags"><li data-t="secu">Security</li><li data-t="edu">Training</li></ul>
+        </article>
+
+        <article class="project reveal lensable" data-tags="edu secu dev">
+          <p class="project-meta mono">2026 · Project lead</p>
+          <h3>Code en Herbe</h3>
+          <p>A digital education programme for 10–18 year-olds in French-speaking Africa: coding, digital safety and career guidance, with a companion exercise site.</p>
+          <ul class="tags"><li data-t="edu">Training</li><li data-t="secu">Security</li><li data-t="dev">Dev</li></ul>
+        </article>
+
+        <article class="project reveal lensable" data-tags="data dev">
+          <p class="project-meta mono">2024–2025 · UIDT, Health faculty</p>
+          <h3>Guiss Tali</h3>
+          <p>A platform to collect and track drivers' health data: medical appointments, visualisation, predictive models.</p>
+          <ul class="tags"><li data-t="data">Data</li><li data-t="dev">Dev</li></ul>
+        </article>
+
+        <article class="project reveal lensable" data-tags="dev edu">
+          <p class="project-meta mono">Thiès · Consulting firm</p>
+          <h3>AfricaBytes</h3>
+          <p>My consulting and digital solutions firm: designing and delivering tech projects to international standards, and incubating the best student projects. Site built with Next.js, React and Prisma.</p>
+          <ul class="tags"><li data-t="dev">Dev</li><li data-t="edu">Training</li></ul>
+          <a class="project-link mono" href="https://africabytes.178-33-91-81.sslip.io" target="_blank" rel="noopener">View the site ↗</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ EXPERIENCE ============ -->
+    <section class="section wrap" id="experience">
+      <header class="section-head reveal">
+        <p class="section-index mono">05 / Experience</p>
+        <h2>Between training, <em>consulting</em> and engineering.</h2>
+      </header>
+
+      <ol class="timeline">
+        <li class="reveal lensable" data-tags="secu ia edu">
+          <span class="tl-date mono">2026 —</span>
+          <div class="tl-body">
+            <h3>Short-term expert — Trainer &amp; facilitator</h3>
+            <p class="tl-org">GIZ · Sen'Inclusion programme (Goin'Digital project)</p>
+            <p>Designed and delivered a 15-day “Cybersecurity &amp; AI” module for a non-specialist adult audience. Delivered the “Becoming a Leader”, “Expressing your Leadership”, “Daring to go Digital” and “Personal Data Protection and Compliance” modules, plus online presence. Participant handouts, materials, mission reports, methodological support to a co-trainer, learning assessment.</p>
+          </div>
+        </li>
+        <li class="reveal lensable" data-tags="data ia secu">
+          <span class="tl-date mono">2026 —</span>
+          <div class="tl-body">
+            <h3>Information systems &amp; AI consultant</h3>
+            <p class="tl-org">IRESSEF, DSWB &amp; Ministry of Health · Dakar</p>
+            <p>Conversational agent letting field agents query DHIS2 in natural language. Needs gathering with business users, coordination between technical and institutional teams, automated data processing (+45% completeness).</p>
+          </div>
+        </li>
+        <li class="reveal lensable" data-tags="data dev ia secu">
+          <span class="tl-date mono">2026 —</span>
+          <div class="tl-body">
+            <h3>Co-founder &amp; CTO</h3>
+            <p class="tl-org">HarvestHealth SARL · Dakar</p>
+            <p>Data science methodology between HarvestLab (research) and HarvestHealth (commercialisation), confidentiality and ownership framework for health data.</p>
+          </div>
+        </li>
+        <li class="reveal lensable" data-tags="data dev">
+          <span class="tl-date mono">2024 — 2025</span>
+          <div class="tl-body">
+            <h3>Project manager &amp; Lead developer</h3>
+            <p class="tl-org">Guiss Tali · UIDT, Health faculty</p>
+            <p>Full-stack epidemiological tracking platform and predictive models.</p>
+          </div>
+        </li>
+        <li class="reveal lensable" data-tags="dev ia edu secu">
+          <span class="tl-date mono">2022 — 2025</span>
+          <div class="tl-body">
+            <h3>Co-founder, Head of technology &amp; finance</h3>
+            <p class="tl-org">Dobande Technologies · MEST Africa incubation</p>
+            <p>Into Dobande and MegaQuest, architecture and user data security, raised USD&nbsp;100,000 from international investors.</p>
+          </div>
+        </li>
+        <li class="reveal lensable" data-tags="data secu">
+          <span class="tl-date mono">2021 — 2022</span>
+          <div class="tl-body">
+            <h3>Head of accounting</h3>
+            <p class="tl-org">Cabinet Audit et Conseil 2MI</p>
+            <p>Portfolio of over 10 clients, confidentiality of accounting and tax data.</p>
+          </div>
+        </li>
+        <li class="reveal lensable" data-tags="edu secu dev data ia">
+          <span class="tl-date mono">2019 —</span>
+          <div class="tl-body">
+            <h3>University lecturer &amp; trainer</h3>
+            <p class="tl-org">ISM, UCAO, SMI, Ensup Élite, ISIF · Thiès &amp; Dakar</p>
+            <p>Over 500 students trained (Bachelor's and Master's), pass rate above 85%. Active learning: guided labs, group work, collective projects. Train-the-trainer at the Building Maginot workshops (Excel, two levels). Mentoring and incubation of the best projects through AfricaBytes.</p>
+          </div>
+        </li>
+        <li class="reveal lensable" data-tags="edu">
+          <span class="tl-date mono">Ongoing</span>
+          <div class="tl-body">
+            <h3>Trainer — 3FPT programmes</h3>
+            <p class="tl-org">Sup'Management Intelligentsia (SMI)</p>
+            <p>Professional training funded by 3FPT (Senegal's vocational training fund) for working adults: advanced Excel, digital marketing, communication, business organisation.</p>
+          </div>
+        </li>
+        <li class="reveal lensable" data-tags="dev">
+          <span class="tl-date mono">2016 — 2022</span>
+          <div class="tl-body">
+            <h3>Project manager &amp; Developer</h3>
+            <p class="tl-org">DigitKiosk @ 2STB · Chroflix</p>
+            <p>Web and mobile platforms for reading and selling online press content.</p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <!-- ============ EDUCATION & STACK ============ -->
+    <section class="section wrap split" id="education">
+      <div>
+        <header class="section-head reveal">
+          <p class="section-index mono">06 / Education</p>
+          <h2>Two <em>Master's</em> degrees.</h2>
+        </header>
+        <ul class="edu-list">
+          <li class="reveal lensable" data-tags="ia data">
+            <p class="mono">MSc · UIDT, Thiès</p>
+            <h3>Artificial Intelligence &amp; Data Engineering</h3>
+            <p>Thesis: NLP chatbot + Graph RAG for accounting analysis.</p>
+          </li>
+          <li class="reveal lensable" data-tags="secu">
+            <p class="mono">MSc · UNCHK</p>
+            <h3>Computer Science &amp; Mathematics of Cybersecurity</h3>
+            <p>Thesis: securing funding disbursements with blockchain.</p>
+          </li>
+          <li class="reveal lensable" data-tags="data">
+            <p class="mono">M1 · UIDT · 2023</p>
+            <h3>Audit, Control &amp; Data Analysis</h3>
+          </li>
+          <li class="reveal lensable" data-tags="dev data">
+            <p class="mono">Bachelor · UIDT · 2019 &nbsp;/&nbsp; DSG · ISM · 2019</p>
+            <h3>Computerised Business Management · Business Administration</h3>
+          </li>
+          <li class="reveal lensable" data-tags="dev ia">
+            <p class="mono">MEST Africa</p>
+            <h3>Tech entrepreneurship programme</h3>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <header class="section-head reveal">
+          <p class="section-index mono">07 / Tools</p>
+          <h2>The <em>toolbox</em>.</h2>
+        </header>
+        <div class="stack">
+          <div class="stack-group reveal lensable" data-tags="ia">
+            <p class="stack-title mono" data-t="ia">AI &amp; agents</p>
+            <p>Gemini, OpenAI API, Hugging Face, Mistral / Ollama, Vosk, Piper, RAG and Graph RAG, PyTorch, TensorFlow, Keras, Transformers</p>
+          </div>
+          <div class="stack-group reveal lensable" data-tags="secu">
+            <p class="stack-title mono" data-t="secu">Security</p>
+            <p>Kali Linux, Metasploit, OWASP, ISO/IEC 27001, cryptography, blockchain, personal data protection</p>
+          </div>
+          <div class="stack-group reveal lensable" data-tags="data">
+            <p class="stack-title mono" data-t="data">Data</p>
+            <p>Python (pandas, NumPy, scikit-learn), Prophet, SQL, PostgreSQL, MySQL, MongoDB, Neo4j, DHIS2, Power BI, Tableau, ETL</p>
+          </div>
+          <div class="stack-group reveal lensable" data-tags="dev">
+            <p class="stack-title mono" data-t="dev">Engineering</p>
+            <p>FastAPI, Django, React, Node.js, Flutter, .NET / C#, Docker, CI/CD, Git, Redis / Celery, FreeSWITCH / SIP</p>
+          </div>
+          <div class="stack-group reveal lensable" data-tags="edu">
+            <p class="stack-title mono" data-t="edu">Facilitation</p>
+            <p>Kahoot, live polls and quizzes, online collaboration tools, visual materials, generative AI assistants to structure notes and summaries, PowerPoint, Excel</p>
+          </div>
+          <div class="stack-group reveal lensable" data-tags="edu">
+            <p class="stack-title mono" data-t="edu">Management</p>
+            <p>Training design, agile project management (Scrum), budgeting, institutional documents, negotiation with public partners</p>
+          </div>
+          <div class="stack-group reveal">
+            <p class="stack-title mono">Languages</p>
+            <p>French (native) · English (professional) · Wolof (fluent)</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="contact wrap" id="contact">
+      <div class="contact-inner reveal">
+        <div class="contact-intro">
+          <p class="section-index mono">08 / Contact</p>
+          <h2>Let's talk about your <em>project</em>.</h2>
+          <p class="lead">Training, workshop, seminar facilitation, AI or cybersecurity consulting: describe what you need and I will get back to you within 2 business days with a first proposal.</p>
+          <div class="contact-actions">
+            <a class="contact-mail" href="mailto:naelmansa@gmail.com">naelmansa@gmail.com</a>
+            <button class="btn btn-ghost copy" type="button" data-copy="naelmansa@gmail.com">Copy</button>
+          </div>
+          <ul class="contact-links mono">
+            <li><a href="tel:+221781680443">+221 78 168 04 43</a></li>
+            <li><a href="https://wa.me/221781680443" target="_blank" rel="noopener">WhatsApp ↗</a></li>
+            <li><a href="https://github.com/mansanael" target="_blank" rel="noopener">github.com/mansanael ↗</a></li>
+            <li>Dakar · Thiès, Senegal</li>
+            <li>References on request</li>
+          </ul>
+        </div>
+
+        <form class="contact-form" id="contact-form" action="https://formsubmit.co/naelmansa@gmail.com" method="POST" novalidate>
+          <input type="hidden" name="_subject" value="New request from the portfolio (EN)">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="Langue du site" value="English">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+          <fieldset>
+            <legend class="mono">01 — About you</legend>
+            <div class="fields">
+              <div class="field">
+                <label for="f-name">Full name <abbr title="required">*</abbr></label>
+                <input id="f-name" name="Nom" type="text" autocomplete="name" required maxlength="120">
+                <p class="field-error" aria-live="polite"></p>
+              </div>
+              <div class="field">
+                <label for="f-email">Email <abbr title="required">*</abbr></label>
+                <input id="f-email" name="email" type="email" autocomplete="email" required maxlength="160">
+                <p class="field-error" aria-live="polite"></p>
+              </div>
+              <div class="field">
+                <label for="f-phone">Phone / WhatsApp</label>
+                <input id="f-phone" name="Téléphone" type="tel" autocomplete="tel" placeholder="+221 …" maxlength="40">
+              </div>
+              <div class="field">
+                <label for="f-org">Organisation <abbr title="required">*</abbr></label>
+                <input id="f-org" name="Organisation" type="text" autocomplete="organization" required maxlength="160">
+                <p class="field-error" aria-live="polite"></p>
+              </div>
+              <div class="field">
+                <label for="f-role">Job title</label>
+                <input id="f-role" name="Fonction" type="text" autocomplete="organization-title" maxlength="120">
+              </div>
+              <div class="field">
+                <label for="f-orgtype">Type of organisation</label>
+                <select id="f-orgtype" name="Type de structure">
+                  <option value="">Choose…</option>
+                  <option>Private company</option>
+                  <option>Government / ministry</option>
+                  <option>NGO / international cooperation</option>
+                  <option>University / school</option>
+                  <option>Startup / incubator</option>
+                  <option>Individual</option>
+                  <option>Other</option>
+                </select>
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend class="mono">02 — Your needs</legend>
+            <div class="fields">
+              <div class="field field-full">
+                <label for="f-request">Type of request <abbr title="required">*</abbr></label>
+                <select id="f-request" name="Type de demande" required>
+                  <option value="">Choose…</option>
+                  <option>AI literacy workshop</option>
+                  <option>AI use-case workshop / facilitation</option>
+                  <option>Cybersecurity, AI and data protection training</option>
+                  <option>Leadership and digital transformation</option>
+                  <option>Train-the-trainer</option>
+                  <option>Seminar / hackathon facilitation</option>
+                  <option>AI / data consulting or project</option>
+                  <option>Cybersecurity audit or consulting</option>
+                  <option>Talk / speaking engagement</option>
+                  <option>Other</option>
+                </select>
+                <p class="field-error" aria-live="polite"></p>
+              </div>
+              <div class="field">
+                <label for="f-audience">Target audience</label>
+                <select id="f-audience" name="Public visé">
+                  <option value="">Choose…</option>
+                  <option>General public / non-specialists</option>
+                  <option>Business staff</option>
+                  <option>Managers / executives</option>
+                  <option>Technical teams</option>
+                  <option>Trainers / teachers</option>
+                  <option>Students / young people</option>
+                  <option>Mixed audience</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="f-level">Group's digital skill level</label>
+                <select id="f-level" name="Niveau du groupe">
+                  <option value="">Choose…</option>
+                  <option>Beginner</option>
+                  <option>Intermediate</option>
+                  <option>Advanced</option>
+                  <option>Mixed</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="f-size">Number of participants</label>
+                <input id="f-size" name="Participants" type="number" min="1" max="2000" inputmode="numeric" placeholder="e.g. 25">
+                <p class="field-error" aria-live="polite"></p>
+              </div>
+              <div class="field">
+                <label for="f-duration">Expected duration</label>
+                <select id="f-duration" name="Durée">
+                  <option value="">Choose…</option>
+                  <option>Less than half a day</option>
+                  <option>Half a day</option>
+                  <option>1 day</option>
+                  <option>2 to 3 days</option>
+                  <option>A week or more</option>
+                  <option>Programme over several weeks</option>
+                  <option>To be defined together</option>
+                </select>
+              </div>
+              <div class="field field-full">
+                <span class="label" id="f-format-label">Format</span>
+                <div class="segmented" role="radiogroup" aria-labelledby="f-format-label">
+                  <label><input type="radio" name="Format" value="In person" checked><span>In person</span></label>
+                  <label><input type="radio" name="Format" value="Remote"><span>Remote</span></label>
+                  <label><input type="radio" name="Format" value="Hybrid"><span>Hybrid</span></label>
+                  <label><input type="radio" name="Format" value="To be defined"><span>To be defined</span></label>
+                </div>
+              </div>
+              <div class="field">
+                <label for="f-place">Location</label>
+                <input id="f-place" name="Lieu" type="text" placeholder="e.g. Dakar, Thiès, online" maxlength="120">
+              </div>
+              <div class="field">
+                <label for="f-date">Preferred timing</label>
+                <input id="f-date" name="Période souhaitée" type="text" placeholder="e.g. early December 2026" maxlength="120">
+              </div>
+              <div class="field">
+                <label for="f-budget">Indicative budget</label>
+                <select id="f-budget" name="Budget indicatif">
+                  <option value="">Choose…</option>
+                  <option>To be defined / on quote</option>
+                  <option>Under 500,000 FCFA (≈ €760)</option>
+                  <option>500,000 – 1,500,000 FCFA (≈ €760 – 2,300)</option>
+                  <option>1,500,000 – 5,000,000 FCFA (≈ €2,300 – 7,600)</option>
+                  <option>Over 5,000,000 FCFA (≈ €7,600)</option>
+                  <option>Donor framework / existing ToR</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="f-lang">Delivery language</label>
+                <select id="f-lang" name="Langue">
+                  <option>English</option>
+                  <option>French</option>
+                  <option>Wolof</option>
+                  <option>French and English</option>
+                </select>
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend class="mono">03 — Details</legend>
+            <div class="fields">
+              <div class="field field-full">
+                <label for="f-message">Objectives, context and expectations <abbr title="required">*</abbr></label>
+                <textarea id="f-message" name="Message" rows="6" required minlength="20" maxlength="4000" placeholder="What participants should be able to do by the end, your organisation's context, any constraints (ToR, schedule, logistics)…"></textarea>
+                <p class="field-hint mono"><span id="f-count">0</span> / 4000</p>
+                <p class="field-error" aria-live="polite"></p>
+              </div>
+              <div class="field field-full">
+                <label for="f-source">How did you hear about me?</label>
+                <select id="f-source" name="Source">
+                  <option value="">Choose…</option>
+                  <option>Referral</option>
+                  <option>LinkedIn</option>
+                  <option>GitHub</option>
+                  <option>Previous engagement (GIZ, 3FPT…)</option>
+                  <option>University / school</option>
+                  <option>Web search</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div class="field field-full">
+                <label class="check">
+                  <input type="checkbox" name="Consentement" value="Accepted" required>
+                  <span>I agree that this information will be used only to respond to my request. <abbr title="required">*</abbr></span>
+                </label>
+                <p class="field-error" aria-live="polite"></p>
+              </div>
+            </div>
+          </fieldset>
+
+          <div class="form-foot">
+            <button class="btn btn-primary" type="submit">Send request <span aria-hidden="true">→</span></button>
+            <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+          </div>
+          <p class="form-note mono">* required fields · sent securely via FormSubmit to naelmansa@gmail.com</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer wrap mono">
+    <span>© <span id="year">2026</span> Magath Alé Coumba Selleh NAEL</span>
+    <span>Hand-written HTML, CSS and JS · no trackers</span>
+  </footer>
+
+  <script src="../script.js"></script>
+</body>
+</html>

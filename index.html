@@ -6,6 +6,9 @@
   <title>Magath NAEL — Consultant formateur IA, Cybersécurité & Données</title>
   <meta name="description" content="Magath NAEL — Consultant formateur et facilitateur en intelligence artificielle, cybersécurité et transformation numérique. Ingénieur IA appliquée et data scientist. Dakar / Thiès, Sénégal.">
   <meta name="theme-color" content="#0b0c0e">
+  <link rel="alternate" hreflang="fr" href="https://mansanael.netlify.app/">
+  <link rel="alternate" hreflang="en" href="https://mansanael.netlify.app/en/">
+  <link rel="alternate" hreflang="x-default" href="https://mansanael.netlify.app/">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230b0c0e'/%3E%3Ctext x='16' y='21' text-anchor='middle' font-family='monospace' font-size='13' font-weight='600' fill='%23e9e7e2'%3EMN%3C/text%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -37,6 +40,7 @@
         <a href="#parcours">Parcours</a>
         <a href="#contact">Contact</a>
       </nav>
+      <a class="lang-switch mono" href="en/index.html" hreflang="en" lang="en" aria-label="Read this site in English"><b>FR</b><span>EN</span></a>
       <button class="theme-toggle" type="button" aria-label="Changer de thème">
         <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M12 7a5 5 0 0 1 0 10z" fill="currentColor"/></svg>
       </button>
@@ -310,39 +314,43 @@
       <header class="section-head reveal">
         <p class="section-index mono">03 / Projet phare</p>
         <h2>SAYOON — <em>un agent vocal</em> qui appelle les patients.</h2>
-        <p class="lead">Agent vocal autonome pour le suivi des patients atteints de tuberculose au Sénégal, sur une téléphonie auto-hébergée. Le pipeline complet est en phase d'évaluation, avant déploiement, et testé sur des données de patients synthétiques.</p>
-        <p class="status mono"><span class="dot"></span>2026 — en cours · évaluation pré-déploiement</p>
+        <p class="lead">Agent vocal IA autonome qui mène des campagnes d'appels de relance pour le suivi des patients tuberculeux&nbsp;: observance, effets indésirables, rendez-vous. Porteur institutionnel&nbsp;: IRESSEF, district sanitaire de Tambacounda. Principe directeur&nbsp;: en production, aucune donnée médicale ni d'identification patient ne transite par un service cloud tiers. Le système est en évaluation avant déploiement, testé sur des données de patients synthétiques.</p>
+        <div class="links-row">
+          <p class="status mono"><span class="dot"></span>2026 — en cours · évaluation pré-déploiement</p>
+          <a class="btn btn-ghost" href="https://sayoon.178-33-91-81.sslip.io" target="_blank" rel="noopener">Voir le service ↗</a>
+          <a class="btn btn-ghost" href="https://sayoon.178-33-91-81.sslip.io/docs" target="_blank" rel="noopener">Documentation de l'API ↗</a>
+        </div>
       </header>
 
       <div class="case">
         <div class="case-block reveal">
-          <p class="block-title mono">fig.03 — boucle vocale temps réel</p>
+          <p class="block-title mono">fig.03 — étape 2 · chaîne entièrement hébergée (version actuelle)</p>
           <ol class="pipeline">
-            <li><span class="mono">01</span><b>Appel SIP</b><small>FreeSWITCH · mod_audio_fork</small></li>
-            <li><span class="mono">02</span><b>Détection de parole</b><small>Silero VAD (ONNX) · fin de tour 800&nbsp;ms</small></li>
-            <li><span class="mono">03</span><b>Écoute + décision</b><small>Gemini 2.5 Flash · ASR et décision en un seul appel</small></li>
-            <li><span class="mono">04</span><b>Garde-fous</b><small>Sortie JSON stricte · validation en aval</small></li>
-            <li><span class="mono">05</span><b>Synthèse vocale</b><small>Gemini TTS · invites fixes pré-synthétisées</small></li>
+            <li><span class="mono">01</span><b>Appel</b><small>Passerelle Twilio pour le pilote · téléphonie hébergée visée en production</small></li>
+            <li><span class="mono">02</span><b>Reconnaissance vocale</b><small>Vosk · hébergé sur le serveur</small></li>
+            <li><span class="mono">03</span><b>Décision</b><small>LLM local via Ollama · sortie JSON stricte, validation en aval</small></li>
+            <li><span class="mono">04</span><b>Synthèse vocale</b><small>Piper · hébergé sur le serveur</small></li>
+            <li><span class="mono">05</span><b>Suivi</b><small>Rendez-vous, effets indésirables, transfert vers un soignant</small></li>
           </ol>
-          <p class="pipeline-foot mono">Orchestration Python asyncio · PostgreSQL · Redis / Celery · Neo4j · transfert structuré vers un opérateur humain</p>
+          <p class="pipeline-foot mono">API FastAPI · orchestrateur d'appels · worker et planificateur · PostgreSQL (+ sauvegarde) · Redis · Docker Compose</p>
         </div>
 
         <div class="case-block reveal">
-          <p class="block-title mono">fig.04 — latence d'un tour complet (secondes)</p>
-          <div class="latency" role="img" aria-label="Latence : 6,5 s avant optimisation, 3,7 s après mise en cache, médiane actuelle 3,1 s, p90 9,2 s, objectif 1,8 s.">
+          <p class="block-title mono">fig.04 — étape 1 · prototype cloud, latence d'un tour (secondes)</p>
+          <div class="latency" role="img" aria-label="Latence du prototype : 6,5 s avant optimisation, 3,7 s après mise en cache, médiane 3,1 s, p90 9,2 s, objectif 1,8 s.">
             <div class="lat-row"><span class="lat-l">Avant optimisation</span><span class="lat-bar"><i style="--w:65%"></i></span><span class="lat-v mono">6,5</span></div>
             <div class="lat-row"><span class="lat-l">Après cache TTS</span><span class="lat-bar"><i style="--w:37%"></i></span><span class="lat-v mono">3,7</span></div>
-            <div class="lat-row is-accent"><span class="lat-l">Médiane actuelle</span><span class="lat-bar"><i style="--w:31%"></i></span><span class="lat-v mono">3,1</span></div>
-            <div class="lat-row is-muted"><span class="lat-l">p90 actuel</span><span class="lat-bar"><i style="--w:92%"></i></span><span class="lat-v mono">9,2</span></div>
+            <div class="lat-row is-accent"><span class="lat-l">Médiane</span><span class="lat-bar"><i style="--w:31%"></i></span><span class="lat-v mono">3,1</span></div>
+            <div class="lat-row is-muted"><span class="lat-l">p90</span><span class="lat-bar"><i style="--w:92%"></i></span><span class="lat-v mono">9,2</span></div>
             <div class="lat-target" style="--x:0.18"><span class="mono">objectif 1,8&nbsp;s</span></div>
           </div>
-          <p class="note">En mesurant la latence de chaque étape, j'ai vu que la queue de la synthèse vocale pesait le plus sur le p90. La mise en cache des invites fixes a réduit le tour de 6,5&nbsp;s à 3,7&nbsp;s. L'optimisation continue.</p>
+          <p class="note">Le premier prototype s'appuyait sur Gemini (écoute, décision et synthèse) pour valider rapidement le dialogue. En mesurant chaque étape, j'ai vu que la queue de la synthèse vocale pesait le plus sur le p90&nbsp;; la mise en cache des invites fixes a réduit le tour de 6,5&nbsp;s à 3,7&nbsp;s. Ces mesures servent de référence à la chaîne hébergée, qui garde les données des patients sur le serveur.</p>
         </div>
 
         <dl class="case-stats reveal">
           <div><dt class="mono">appels réels</dt><dd>61</dd></div>
           <div><dt class="mono">tours de parole analysés</dt><dd>156</dd></div>
-          <div><dt class="mono">LLM local sur CPU</dt><dd>19–47&nbsp;s<small>par décision, jugé non viable</small></dd></div>
+          <div><dt class="mono">données patient vers le cloud</dt><dd>0<small>en production, toute la chaîne est hébergée</small></dd></div>
           <div><dt class="mono">langues</dt><dd>FR · WO<small>essais de TTS en wolof</small></dd></div>
         </dl>
       </div>
@@ -356,11 +364,20 @@
       </header>
 
       <div class="projects">
+        <article class="project reveal lensable" data-tags="edu dev secu">
+          <p class="project-meta mono">2026 · Sen'Inclusion (GIZ / GOPA)</p>
+          <h3>Jàngale</h3>
+          <p>Pilotage des formations terrain auprès de femmes entrepreneures en zone rurale&nbsp;: émargement par QR code, collecte des travaux (texte, audio, photo), évaluations et rapport au format du bailleur. Hors ligne d'abord, questionnaires lus à voix haute en wolof et en français, consentements et accès tracés.</p>
+          <ul class="tags"><li data-t="edu">Formation</li><li data-t="dev">Dev</li><li data-t="secu">Sécurité</li></ul>
+          <a class="project-link mono" href="https://jangale.178-33-91-81.sslip.io" target="_blank" rel="noopener">Voir la plateforme ↗</a>
+        </article>
+
         <article class="project reveal lensable" data-tags="data ia">
           <p class="project-meta mono">2026 · HarvestHealth</p>
           <h3>DHIS2HARVEST</h3>
           <p>Pipeline qui transforme les données sanitaires nationales DHIS2 en outils prédictifs et d'aide à la décision, piloté sur la surveillance du paludisme. Équipe lauréate du hackathon national.</p>
           <ul class="tags"><li data-t="data">Données</li><li data-t="ia">IA</li></ul>
+          <a class="project-link mono" href="https://lab.dhis-harvest.com" target="_blank" rel="noopener">Voir le lab ↗</a>
         </article>
 
         <article class="project reveal lensable" data-tags="ia data dev">
@@ -382,6 +399,7 @@
           <h3>MegaQuest</h3>
           <p>Outil NLP de collecte, d'analyse et de scoring automatisés de grands volumes de texte. Plus de 200 utilisateurs actifs.</p>
           <ul class="tags"><li data-t="ia">IA</li><li data-t="dev">Dev</li></ul>
+          <a class="project-link mono" href="https://megaquest.io" target="_blank" rel="noopener">Voir le site ↗</a>
         </article>
 
         <article class="project reveal lensable" data-tags="dev edu ia">
@@ -389,6 +407,7 @@
           <h3>Into Dobande</h3>
           <p>Plateforme d'apprentissage gamifiée (programmation, marketing numérique), avec progression et récompenses optimisées par l'IA.</p>
           <ul class="tags"><li data-t="dev">Dev</li><li data-t="edu">Formation</li><li data-t="ia">IA</li></ul>
+          <a class="project-link mono" href="https://mansanael.github.io/dobande-web/" target="_blank" rel="noopener">Jouer en ligne ↗</a>
         </article>
 
         <article class="project reveal lensable" data-tags="ia data">
@@ -403,6 +422,14 @@
           <h3>Financements sécurisés par blockchain</h3>
           <p>Sécurisation des versements de bourses et de financements de recherche&nbsp;: registre distribué, modélisation des menaces, hypothèses vérifiables.</p>
           <ul class="tags"><li data-t="secu">Sécurité</li></ul>
+        </article>
+
+        <article class="project reveal lensable" data-tags="secu dev">
+          <p class="project-meta mono">2026 · Prix du Président (candidature)</p>
+          <h3>Jàmbaar-Shield</h3>
+          <p>Registre distribué pour tracer les flux d'approvisionnement de défense&nbsp;: chaque transaction est scellée et vérifiable par preuve cryptographique, et chaque accès d'un auditeur habilité est lui-même journalisé. Rust, consensus CometBFT sur 4&nbsp;nœuds.</p>
+          <ul class="tags"><li data-t="secu">Sécurité</li><li data-t="dev">Dev</li></ul>
+          <a class="project-link mono" href="http://178.33.91.81:8088/jury/" target="_blank" rel="noopener">Page de présentation ↗</a>
         </article>
 
         <article class="project reveal lensable" data-tags="secu edu">
@@ -431,6 +458,14 @@
           <h3>Guiss Tali</h3>
           <p>Plateforme de collecte et de suivi de données de santé des conducteurs&nbsp;: rendez-vous médicaux, visualisation, modèles prédictifs.</p>
           <ul class="tags"><li data-t="data">Données</li><li data-t="dev">Dev</li></ul>
+        </article>
+
+        <article class="project reveal lensable" data-tags="dev edu">
+          <p class="project-meta mono">Thiès · Structure de conseil</p>
+          <h3>AfricaBytes</h3>
+          <p>Ma structure de conseil et de solutions digitales&nbsp;: conception et livraison de projets tech aux standards internationaux, et incubation des meilleurs projets étudiants. Site en Next.js, React et Prisma.</p>
+          <ul class="tags"><li data-t="dev">Dev</li><li data-t="edu">Formation</li></ul>
+          <a class="project-link mono" href="https://africabytes.178-33-91-81.sslip.io" target="_blank" rel="noopener">Voir le site ↗</a>
         </article>
       </div>
     </section>
@@ -559,7 +594,7 @@
         <div class="stack">
           <div class="stack-group reveal lensable" data-tags="ia">
             <p class="stack-title mono" data-t="ia">IA &amp; agents</p>
-            <p>Gemini, OpenAI API, Hugging Face, Mistral / Ollama, RAG et Graph RAG, PyTorch, TensorFlow, Keras, Transformers</p>
+            <p>Gemini, OpenAI API, Hugging Face, Mistral / Ollama, Vosk, Piper, RAG et Graph RAG, PyTorch, TensorFlow, Keras, Transformers</p>
           </div>
           <div class="stack-group reveal lensable" data-tags="secu">
             <p class="stack-title mono" data-t="secu">Sécurité</p>
@@ -612,6 +647,7 @@
         <form class="contact-form" id="contact-form" action="https://formsubmit.co/naelmansa@gmail.com" method="POST" novalidate>
           <input type="hidden" name="_subject" value="Nouvelle demande depuis le portfolio">
           <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="Langue du site" value="Français">
           <input type="hidden" name="_captcha" value="false">
           <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
 

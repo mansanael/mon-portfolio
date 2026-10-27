@@ -7,6 +7,17 @@
   const $ = (sel, ctx = document) => ctx.querySelector(sel);
   const $$ = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
 
+  /* ---------- Langue ---------- */
+  const EN = (root.lang || '').startsWith('en');
+  const t = (fr, en) => (EN ? en : fr);
+  // Libellés du graphe : la clé française sert d'identifiant
+  const GRAPH_EN = {
+    'SÉCURITÉ': 'SECURITY', 'DONNÉES': 'DATA', 'FORMATION': 'TRAINING',
+    'Agents vocaux': 'Voice agents', 'Cryptographie': 'Cryptography',
+    '500+ étudiants': '500+ students', 'Ateliers IA': 'AI workshops'
+  };
+  const tl = (label) => (EN && GRAPH_EN[label]) || label;
+
   /* ---------- Thème ---------- */
   const isDark = () => {
     const t = root.getAttribute('data-theme');
@@ -55,7 +66,14 @@
   }
 
   /* ---------- Lentilles ---------- */
-  const STATEMENTS = {
+  const STATEMENTS = EN ? {
+    all:  'I make AI understandable, safe and useful, for teams and for systems alike.',
+    ia:   'I build AI agents that hold up in real conditions: weak networks, bilingual users.',
+    secu: 'I secure systems that carry sensitive data, from public health to finance.',
+    data: 'I turn national data into public health decisions.',
+    dev:  "I ship complete applications, from the API to the patient's phone.",
+    edu:  'I run workshops where everyone dares to speak up, and leaves with something concrete.'
+  } : {
     all:  "Je rends l'IA compréhensible, sûre et utile, pour les équipes comme pour les systèmes.",
     ia:   'Je construis des agents IA qui tiennent en conditions réelles : réseau faible, utilisateurs bilingues.',
     secu: 'Je sécurise les systèmes qui portent des données sensibles, de la santé publique à la finance.',
@@ -142,8 +160,8 @@
   const term = $('#term');
   const SCRIPTS = [
     { cmd: 'docker compose up -d', out: ['<span class="ok">✓</span> api      fastapi   :8000', '<span class="ok">✓</span> worker   celery    ready', '<span class="ok">✓</span> db       postgres  healthy'] },
-    { cmd: 'git push origin main', out: ['→ ci   lint · tests · build', '→ cd   image docker publiée', '<span class="ok">✓</span> déploiement terminé'] },
-    { cmd: 'flutter build apk --release', out: ['  compilation dart → arm64', '  optimisation des ressources', '<span class="ok">✓</span> app-release.apk'] }
+    { cmd: 'git push origin main', out: ['→ ci   lint · tests · build', t('→ cd   image docker publiée', '→ cd   docker image pushed'), `<span class="ok">✓</span> ${t('déploiement terminé', 'deployment complete')}`] },
+    { cmd: 'flutter build apk --release', out: [t('  compilation dart → arm64', '  compiling dart → arm64'), t('  optimisation des ressources', '  optimizing assets'), '<span class="ok">✓</span> app-release.apk'] }
   ];
   let termRun = 0, termActive = false;
 
@@ -214,9 +232,9 @@
       const label = btn.textContent;
       try {
         await navigator.clipboard.writeText(btn.dataset.copy);
-        btn.textContent = 'Copié ✓';
+        btn.textContent = t('Copié ✓', 'Copied ✓');
       } catch (e) {
-        btn.textContent = 'Échec de la copie';
+        btn.textContent = t('Échec de la copie', 'Copy failed');
       }
       setTimeout(() => { btn.textContent = label; }, 1800);
     });
@@ -238,12 +256,12 @@
   });
 
   const MESSAGES = {
-    valueMissing: 'Ce champ est obligatoire.',
-    typeMismatch: 'Adresse e-mail invalide.',
-    tooShort: (el) => `Merci de détailler un peu plus (${el.minLength} caractères minimum).`,
-    rangeUnderflow: 'Valeur trop petite.',
-    rangeOverflow: 'Valeur trop grande.',
-    badInput: 'Valeur invalide.'
+    valueMissing: t('Ce champ est obligatoire.', 'This field is required.'),
+    typeMismatch: t('Adresse e-mail invalide.', 'Invalid email address.'),
+    tooShort: (el) => t(`Merci de détailler un peu plus (${el.minLength} caractères minimum).`, `Please add a little more detail (at least ${el.minLength} characters).`),
+    rangeUnderflow: t('Valeur trop petite.', 'Value too small.'),
+    rangeOverflow: t('Valeur trop grande.', 'Value too large.'),
+    badInput: t('Valeur invalide.', 'Invalid value.')
   };
 
   function errorSlot(el) { return el.closest('.field').querySelector('.field-error'); }
@@ -293,17 +311,17 @@
       if (invalid.length) {
         invalid[0].focus();
         status.className = 'form-status err';
-        status.textContent = 'Merci de compléter les champs signalés.';
+        status.textContent = t('Merci de compléter les champs signalés.', 'Please complete the highlighted fields.');
         return;
       }
 
       const data = Object.fromEntries(new FormData(form));
       if (data._honey) return; // robot
-      data._subject = `Portfolio — ${data['Type de demande']} — ${data.Organisation}`;
+      data._subject = `Portfolio${EN ? ' (EN)' : ''} — ${data['Type de demande']} — ${data.Organisation}`;
 
       submit.disabled = true;
       status.className = 'form-status';
-      status.textContent = 'Envoi en cours…';
+      status.textContent = t('Envoi en cours…', 'Sending…');
 
       try {
         const res = await fetch(`https://formsubmit.co/ajax/${CONTACT_EMAIL}`, {
@@ -317,14 +335,17 @@
         form.reset();
         count.textContent = '0';
         status.className = 'form-status ok';
-        status.textContent = `Merci ${data.Nom.split(' ')[0]}, votre demande est bien envoyée. Je vous réponds sous 48 heures ouvrées.`;
+        const first = data.Nom.split(' ')[0];
+        status.textContent = t(
+          `Merci ${first}, votre demande est bien envoyée. Je vous réponds sous 48 heures ouvrées.`,
+          `Thank you ${first}, your request has been sent. I will reply within 2 business days.`);
       } catch (err) {
         status.className = 'form-status err';
         status.innerHTML = '';
         const link = document.createElement('a');
         link.href = mailtoFallback(data);
-        link.textContent = 'envoyer la demande depuis votre messagerie';
-        status.append("L'envoi n'a pas abouti. Vous pouvez ", link, '.');
+        link.textContent = t('envoyer la demande depuis votre messagerie', 'send it from your email app');
+        status.append(t("L'envoi n'a pas abouti. Vous pouvez ", 'Sending failed. You can '), link, '.');
       } finally {
         submit.disabled = false;
       }
@@ -364,10 +385,10 @@
     const center = { label: 'MN', domain: 'all', kind: 'center', a: 1 };
     nodes.push(center);
     DOMAINS.forEach((d, i) => {
-      const hub = { label: HUB_LABEL[d], domain: d, kind: 'hub', idx: i, a: 1 };
+      const hub = { label: tl(HUB_LABEL[d]), domain: d, kind: 'hub', idx: i, a: 1 };
       nodes.push(hub);
       SKILLS[d].forEach((s, j) => {
-        const n = { label: s, domain: d, kind: 'skill', hub, j, n: SKILLS[d].length, a: 1,
+        const n = { label: tl(s), domain: d, kind: 'skill', hub, j, n: SKILLS[d].length, a: 1,
           jitterA: (rnd() - 0.5) * 0.35, jitterR: 0.85 + rnd() * 0.35, phase: rnd() * Math.PI * 2 };
         nodes.push(n);
         byLabel[s] = n;
